@@ -9,48 +9,92 @@ export const translations = {
     },
     hero: {
       badge: "Coming soon",
-      headline: "Home-made food, now closer to you.",
+      headline: "The taste of Algeria, now closer to you.",
       description:
-        "Makletna connects you with talented home cooks near you. Healthy, traditional Algerian meals — prepared with care and delivered fresh.",
+        "Makletna connects you with home cooks, traditional sweets makers, traditional restaurants and wedding & event caterers near you — authentic Algerian food, prepared with care and delivered fresh.",
       cta: "Join the waitlist",
+    },
+    categories: {
+      eyebrow: "Four categories",
+      title: "One app, every flavour of Algeria.",
+      subtitle:
+        "From daily home-cooked meals to wedding feasts — find the right food maker for every occasion.",
+      items: [
+        {
+          icon: "🏠",
+          title: "Homemade food",
+          description:
+            "Daily dishes and family recipes from talented home cooks near you.",
+        },
+        {
+          icon: "🍮",
+          title: "Traditional sweets",
+          description:
+            "Authentic Algerian sweets, crafted with skill for every celebration.",
+        },
+        {
+          icon: "🍽️",
+          title: "Traditional food restaurant",
+          description:
+            "Book a table and enjoy traditional dishes in an authentic setting.",
+        },
+        {
+          icon: "🎉",
+          title: "Wedding & events caterer",
+          description:
+            "Request catering for your weddings and events, with clear availability and price ranges.",
+        },
+      ],
     },
     mainCards: [
       {
         icon: "utensils",
-        title: "Authentic home cooking",
+        title: "Authentic Algerian cooking",
         description:
-          "Real Algerian dishes prepared by talented cooks near you, with fresh ingredients.",
+          "Real Algerian dishes from home cooks, sweets makers and traditional restaurants near you — always made with fresh ingredients.",
       },
       {
         icon: "map-pin",
-        title: "Cooks near you",
+        title: "Food makers near you",
         description:
-          "Discover the home cooks around you and order the dishes you grew up loving.",
+          "Discover the home cooks, traditional restaurants and event caterers around you, and order the dishes you grew up loving.",
       },
     ],
     features: {
       eyebrow: "All features",
       title: "Everything Makletna brings to your table.",
       subtitle:
-        "From browsing kitchens to sharing your favourite dish — a complete home-cooked experience in a single app.",
+        "From browsing kitchens to booking a table or planning a wedding feast — a complete Algerian food experience in a single app.",
       items: [
         {
           icon: "🍲",
           title: "Explore meals",
           description:
-            "Browse hundreds of authentic home-cooked dishes — couscous, chakhchoukha, dolma and more.",
+            "Browse hundreds of authentic dishes — couscous, chakhchoukha, dolma, traditional sweets and more.",
         },
         {
           icon: "👩‍🍳",
-          title: "Discover kitchens",
+          title: "Discover food makers",
           description:
-            "Get to know the home cooks behind every dish and follow the ones you love.",
+            "Get to know the home cooks, sweets makers, restaurants and caterers behind every dish.",
         },
         {
           icon: "🍽️",
           title: "Meeda",
           description:
             "Gather around a shared family table — reserve your spot at a cook's Meeda and share a meal together.",
+        },
+        {
+          icon: "🪑",
+          title: "Table booking",
+          description:
+            "Reserve your table at traditional restaurants and enjoy a slow-cooked meal on the spot.",
+        },
+        {
+          icon: "🎉",
+          title: "Catering for events",
+          description:
+            "Send a catering request for your wedding or event — with availability and price ranges up front.",
         },
         {
           icon: "💬",
@@ -62,13 +106,13 @@ export const translations = {
           icon: "📍",
           title: "Near you",
           description:
-            "Delivery or pickup straight from cooks in your neighbourhood — fresh, fast and local.",
+            "Delivery or pickup straight from food makers in your neighbourhood — fresh, fast and local.",
         },
         {
           icon: "❤️",
-          title: "Healthy & home-made",
+          title: "Healthy & authentic",
           description:
-            "Real ingredients and traditional recipes, slow-cooked the way food is meant to be made at home.",
+            "Real ingredients and traditional recipes, slow-cooked the way Algerian food is meant to be made.",
         },
       ],
     },
@@ -88,8 +132,8 @@ export const translations = {
       phone: "Phone number (optional)",
       phonePlaceholder: "+213 ...",
       role: "I am...",
-      roleProvider1: "Professional chef",
-      roleProvider2: "Home cook",
+      roleCustomer: "A customer",
+      roleProvider: "A food provider (cook, restaurant or caterer)",
       wilaya: "Wilaya",
       wilayaPlaceholder: "Select your wilaya",
       submit: "Join the waitlist",
@@ -100,7 +144,7 @@ export const translations = {
       error: "Something went wrong. Please try again.",
     },
     footer: {
-      tagline: "Healthy home-made food near you",
+      tagline: "Authentic Algerian food near you — home cooks, sweets, restaurants & caterers",
       contact: "Contact us",
       email: "contact@makletna.com",
       social: "Follow us",
@@ -116,7 +160,7 @@ export const translations = {
     },
     terms: {
       title: "Terms & Conditions",
-      lastUpdated: "Last updated: May 2025",
+      lastUpdated: "Last updated: August 2026",
       sections: [
         {
           title: "1. Acceptance of Terms",
@@ -124,7 +168,7 @@ export const translations = {
         },
         {
           title: "2. Description of Service",
-          body: "Makletna is an online marketplace that connects customers with home cooks (\"Providers\") offering home-prepared meals. We act as an intermediary platform and do not directly prepare, sell, or deliver food. All transactions are between customers and Providers.",
+          body: "Makletna is an online marketplace that connects customers with independent food providers (\"Providers\") — including home cooks, traditional sweets makers, traditional restaurants, and wedding & event caterers — offering meals, sweets, table reservations, and catering services. We act as an intermediary platform and do not directly prepare, sell, or deliver food. All transactions are between customers and Providers.",
         },
         {
           title: "3. User Accounts",
@@ -200,7 +244,14 @@ export const translations = {
     partners: {
       eyebrow: "Partnership",
       title: "Become a Partner",
-      subtitle: "Join Makletna's growing ecosystem and grow your business alongside Algeria's most exciting food platform.",
+      subtitle: "Whether you're a home cook, a traditional sweets maker, a traditional restaurant or a wedding & event caterer — join Makletna's growing ecosystem and grow your business alongside Algeria's most exciting food platform.",
+      providerTypesTitle: "Who can join?",
+      providerTypes: [
+        { title: "Homemade food", description: "Sell your daily dishes and family recipes to customers near you." },
+        { title: "Traditional sweets", description: "Reach customers looking for authentic Algerian sweets for every occasion." },
+        { title: "Traditional food restaurant", description: "Receive table bookings and orders directly through the app." },
+        { title: "Wedding & events caterer", description: "Receive catering requests with clear availability and price ranges." },
+      ],
       perksTitle: "Why partner with us?",
       perks: [
         { title: "Grow your reach", description: "Access thousands of food lovers across Algeria through our platform." },
@@ -234,10 +285,10 @@ export const translations = {
     invest: {
       eyebrow: "Investors",
       title: "Invest in Makletna",
-      subtitle: "Be part of Algeria's food-tech revolution. We're building the infrastructure for home cooking — and we're looking for mission-aligned investors to grow with us.",
+      subtitle: "Be part of Algeria's food-tech revolution. We're building the infrastructure for authentic Algerian food — from home kitchens and sweets makers to restaurants and event caterers — and we're looking for mission-aligned investors to grow with us.",
       highlightsTitle: "Why invest now?",
       highlights: [
-        { title: "Massive market", description: "Algeria's food delivery market is largely untapped. Home cooking is an unserved segment with enormous potential." },
+        { title: "Massive market", description: "Algeria's food delivery market is largely untapped, across four provider categories: homemade food, traditional sweets, traditional restaurants and event catering." },
         { title: "Local first", description: "Deep roots in Algerian culture and community, with a product built for local realities." },
         { title: "Innovative model", description: "Our Meeda and Adwak features create unique social dining experiences beyond simple delivery." },
         { title: "Strong fundamentals", description: "Early traction, passionate founders, and a clear path to sustainable unit economics." },
@@ -246,7 +297,7 @@ export const translations = {
         title: "Early traction",
         stats: [
           { value: "58+", label: "Wilayas targeted" },
-          { value: "2", label: "Platform verticals" },
+          { value: "4", label: "Provider categories" },
           { value: "1st", label: "Mover advantage" },
           { value: "DZ", label: "Built for Algeria" },
         ],
@@ -284,48 +335,92 @@ export const translations = {
     },
     hero: {
       badge: "قريباً",
-      headline: "الطّعام المنزليّ أقرب إليك الآن",
+      headline: "نكهة الجزائر أقرب إليك الآن",
       description:
-        "ماكلتنا تربطك بطهاة منزليين موهوبين بالقرب منك. وجبات جزائرية صحية وتقليدية، مُعدّة بعناية وموصّلة طازجة.",
+        "ماكلتنا تربطك بصنّاع الأكل المنزلي والحلويات التقليدية والمطاعم المتخصصة في الأكل التقليدي وطباخي الأعراس والمناسبات بالقرب منك — أكل جزائري أصيل، مُعدّ بعناية وموصّل طازجاً.",
       cta: "انضم إلى قائمة الانتظار",
+    },
+    categories: {
+      eyebrow: "أربع فئات",
+      title: "تطبيق واحد، كل نكهات الجزائر.",
+      subtitle:
+        "من الوجبات المنزلية اليومية إلى موائد الأعراس — جِد صانع الطعام المناسب لكل مناسبة.",
+      items: [
+        {
+          icon: "🏠",
+          title: "أكل منزلي",
+          description:
+            "أطباق يومية ووصفات عائلية من طهاة منزليين موهوبين قريبين منك.",
+        },
+        {
+          icon: "🍮",
+          title: "حلويات تقليدية",
+          description:
+            "حلويات جزائرية أصيلة تُحضَّر بإتقان لكل المناسبات والأفراح.",
+        },
+        {
+          icon: "🍽️",
+          title: "مطعم مختص في الأكل التقليدي",
+          description:
+            "احجز طاولتك واستمتع بأطباق تقليدية في أجواء أصيلة.",
+        },
+        {
+          icon: "🎉",
+          title: "طباخ الأعراس و المناسبات",
+          description:
+            "اطلب خدمة تموين لأفراحك ومناسباتك مع توضيح التوفر ونطاقات الأسعار.",
+        },
+      ],
     },
     mainCards: [
       {
         icon: "utensils",
-        title: "طبخ منزلي أصيل",
+        title: "طبخ جزائري أصيل",
         description:
-          "أطباق جزائرية حقيقية يحضّرها طهاة موهوبون بالقرب منك بمكوّنات طازجة.",
+          "أطباق جزائرية حقيقية من طهاة منزليين وصنّاع حلويات ومطاعم تقليدية قريبة منك، بمكوّنات طازجة دائماً.",
       },
       {
         icon: "map-pin",
-        title: "طهاة قريبون منك",
+        title: "صنّاع الطعام قريبون منك",
         description:
-          "اكتشف الطهاة المنزليين حولك واطلب الأطباق التي نشأت على حبّها.",
+          "اكتشف الطهاة المنزليين والمطاعم التقليدية وطباخي الأعراس حولك، واطلب الأطباق التي نشأت على حبّها.",
       },
     ],
     features: {
       eyebrow: "كل الميّزات",
       title: "كل ما تقدّمه ماكلتنا على مائدتك.",
       subtitle:
-        "من تصفّح المطابخ إلى مشاركة طبقك المفضّل — تجربة طعام منزلية متكاملة في تطبيق واحد.",
+        "من تصفّح المطابخ إلى حجز طاولة أو التحضير لمائدة عرس — تجربة طعام جزائرية متكاملة في تطبيق واحد.",
       items: [
         {
           icon: "🍲",
           title: "استكشف الوجبات",
           description:
-            "تصفّح مئات الأطباق المنزلية الأصيلة — كسكس، شخشوخة، دولمة وأكثر.",
+            "تصفّح مئات الأطباق الأصيلة — كسكس، شخشوخة، دولمة، حلويات تقليدية وأكثر.",
         },
         {
           icon: "👩‍🍳",
-          title: "اكتشف المطابخ",
+          title: "اكتشف صنّاع الطعام",
           description:
-            "تعرّف على الطهاة المنزليين خلف كل طبق وتابع من تحب من بينهم.",
+            "تعرّف على الطهاة المنزليين وصنّاع الحلويات والمطاعم وطباخي الأعراس خلف كل طبق.",
         },
         {
           icon: "🍽️",
           title: "ميدة",
           description:
             "اجتمع حول مائدة عائلية مشتركة — احجز مكانك على ميدة الطاهي وتناولوا الطعام معاً.",
+        },
+        {
+          icon: "🪑",
+          title: "حجز الطاولات",
+          description:
+            "احجز طاولتك في المطاعم المتخصصة في الأكل التقليدي واستمتع بوجبتك في عين المكان.",
+        },
+        {
+          icon: "🎉",
+          title: "تموين المناسبات",
+          description:
+            "أرسل طلب تموين لعرسك أو مناسبتك — مع التوفر ونطاقات الأسعار مسبقاً.",
         },
         {
           icon: "💬",
@@ -336,13 +431,13 @@ export const translations = {
           icon: "📍",
           title: "قريب منك",
           description:
-            "توصيل أو استلام من طهاة في حيّك مباشرةً — طازج وسريع ومحلّي.",
+            "توصيل أو استلام من صنّاع طعام في حيّك مباشرةً — طازج وسريع ومحلّي.",
         },
         {
           icon: "❤️",
-          title: "صحي ومنزلي",
+          title: "صحي وأصيل",
           description:
-            "مكوّنات حقيقية ووصفات تقليدية، مطبوخة على مهلٍ كما يُطهى الطعام في البيت.",
+            "مكوّنات حقيقية ووصفات تقليدية، مطبوخة على مهلٍ كما يجب أن يُطهى الطعام الجزائري.",
         },
       ],
     },
@@ -362,8 +457,8 @@ export const translations = {
       phone: "رقم الهاتف (اختياري)",
       phonePlaceholder: "+213 ...",
       role: "أنا...",
-      roleProvider1: "طاهٍ محترف",
-      roleProvider2: "طاهٍ منزلي",
+      roleCustomer: "زبون",
+      roleProvider: "مقدّم خدمة طعام (طباخ، مطعم أو طباخ أعراس)",
       wilaya: "الولاية",
       wilayaPlaceholder: "اختر ولايتك",
       submit: "انضم إلى قائمة الانتظار",
@@ -374,7 +469,7 @@ export const translations = {
       error: "حدث خطأ ما. يرجى المحاولة مجدداً.",
     },
     footer: {
-      tagline: "طعام منزلي صحي قريب منك",
+      tagline: "أكل جزائري أصيل قريب منك — أكل منزلي، حلويات، مطاعم وطباخو أعراس",
       contact: "تواصل معنا",
       email: "contact@makletna.com",
       social: "تابعنا",
@@ -390,7 +485,7 @@ export const translations = {
     },
     terms: {
       title: "الشروط والأحكام",
-      lastUpdated: "آخر تحديث: مايو 2025",
+      lastUpdated: "آخر تحديث: أوت 2026",
       sections: [
         {
           title: "1. قبول الشروط",
@@ -398,7 +493,7 @@ export const translations = {
         },
         {
           title: "2. وصف الخدمة",
-          body: "ماكلتنا هي سوق إلكترونية تربط العملاء بالطهاة المنزليين الذين يقدمون وجبات منزلية الصنع. نعمل كمنصة وسيطة ولا نقوم بإعداد الطعام أو بيعه أو توصيله مباشرة. جميع المعاملات تتم بين العملاء والطهاة.",
+          body: "ماكلتنا هي سوق إلكترونية تربط العملاء بمقدّمي خدمات الطعام المستقلين (\"مقدّمو الخدمة\") — بما في ذلك الطهاة المنزليون وصنّاع الحلويات التقليدية والمطاعم المتخصصة في الأكل التقليدي وطباخو الأعراس والمناسبات — الذين يقدمون وجبات وحلويات وحجوزات طاولات وخدمات تموين. نعمل كمنصة وسيطة ولا نقوم بإعداد الطعام أو بيعه أو توصيله مباشرة. جميع المعاملات تتم بين العملاء ومقدّمي الخدمة.",
         },
         {
           title: "3. حسابات المستخدمين",
@@ -474,7 +569,14 @@ export const translations = {
     partners: {
       eyebrow: "الشراكة",
       title: "كن شريكاً",
-      subtitle: "انضم إلى منظومة ماكلتنا المتنامية وأنمِ عملك جنباً إلى جنب مع أكثر منصات الطعام إثارة في الجزائر.",
+      subtitle: "سواء كنت طاهاً منزلياً أو صانع حلويات تقليدية أو مطعماً متخصصاً في الأكل التقليدي أو طباخ أعراس ومناسبات — انضم إلى منظومة ماكلتنا المتنامية وأنمِ عملك جنباً إلى جنب مع أكثر منصات الطعام إثارة في الجزائر.",
+      providerTypesTitle: "من يمكنه الانضمام؟",
+      providerTypes: [
+        { title: "أكل منزلي", description: "بِع أطباقك اليومية ووصفاتك العائلية للزبائن القريبين منك." },
+        { title: "حلويات تقليدية", description: "صِل إلى الزبائن الباحثين عن حلويات جزائرية أصيلة لكل مناسبة." },
+        { title: "مطعم مختص في الأكل التقليدي", description: "استقبل حجوزات الطاولات والطلبات مباشرة عبر التطبيق." },
+        { title: "طباخ الأعراس و المناسبات", description: "استقبل طلبات التموين مع توضيح التوفر ونطاقات الأسعار." },
+      ],
       perksTitle: "لماذا الشراكة معنا؟",
       perks: [
         { title: "وسّع انتشارك", description: "وصول إلى آلاف محبي الطعام في أرجاء الجزائر من خلال منصتنا." },
@@ -508,10 +610,10 @@ export const translations = {
     invest: {
       eyebrow: "المستثمرون",
       title: "استثمر في ماكلتنا",
-      subtitle: "كن جزءاً من ثورة التكنولوجيا الغذائية في الجزائر. نبني البنية التحتية للطبخ المنزلي — ونبحث عن مستثمرين يؤمنون برسالتنا.",
+      subtitle: "كن جزءاً من ثورة التكنولوجيا الغذائية في الجزائر. نبني البنية التحتية للأكل الجزائري الأصيل — من المطابخ المنزلية وصنّاع الحلويات إلى المطاعم وطباخي الأعراس — ونبحث عن مستثمرين يؤمنون برسالتنا.",
       highlightsTitle: "لماذا الاستثمار الآن؟",
       highlights: [
-        { title: "سوق ضخم", description: "سوق توصيل الطعام في الجزائر لا يزال غير مستغَل إلى حد كبير. الطبخ المنزلي قطاع غير مخدوم بإمكانات هائلة." },
+        { title: "سوق ضخم", description: "سوق توصيل الطعام في الجزائر لا يزال غير مستغَل إلى حد كبير، عبر أربع فئات من مقدّمي الخدمة: الأكل المنزلي والحلويات التقليدية والمطاعم التقليدية وتموين المناسبات." },
         { title: "محلي أولاً", description: "جذور عميقة في الثقافة والمجتمع الجزائري، ومنتج مبني للواقع المحلي." },
         { title: "نموذج مبتكر", description: "ميزات الميدة والأذواق تخلق تجارب طعام اجتماعية فريدة تتخطى التوصيل البسيط." },
         { title: "أساسيات قوية", description: "زخم مبكر، ومؤسسون شغوفون، ومسار واضح نحو اقتصاديات وحدة مستدامة." },
@@ -520,7 +622,7 @@ export const translations = {
         title: "الزخم المبكر",
         stats: [
           { value: "+58", label: "ولاية مستهدفة" },
-          { value: "2", label: "مجال خدمة" },
+          { value: "4", label: "فئات مقدمي الخدمة" },
           { value: "الأول", label: "ميزة الريادة" },
           { value: "DZ", label: "مبني للجزائر" },
         ],
@@ -558,48 +660,92 @@ export const translations = {
     },
     hero: {
       badge: "Bientôt",
-      headline: "La cuisine maison, désormais plus près de vous.",
+      headline: "Le goût de l'Algérie, désormais plus près de vous.",
       description:
-        "Makletna vous met en relation avec des cuisiniers maison talentueux près de chez vous. Des plats algériens sains et traditionnels — préparés avec soin et livrés frais.",
+        "Makletna vous met en relation avec des cuisiniers maison, des pâtissiers traditionnels, des restaurants traditionnels et des traiteurs de mariages & événements près de chez vous — une cuisine algérienne authentique, préparée avec soin et livrée fraîche.",
       cta: "Rejoindre la liste d'attente",
+    },
+    categories: {
+      eyebrow: "Quatre catégories",
+      title: "Une seule application, toutes les saveurs de l'Algérie.",
+      subtitle:
+        "Des plats maison du quotidien aux festins de mariage — trouvez le bon artisan du goût pour chaque occasion.",
+      items: [
+        {
+          icon: "🏠",
+          title: "Plats maison",
+          description:
+            "Des plats du quotidien et des recettes familiales par des cuisiniers maison talentueux près de chez vous.",
+        },
+        {
+          icon: "🍮",
+          title: "Pâtisseries traditionnelles",
+          description:
+            "Des douceurs algériennes authentiques, préparées avec savoir-faire pour chaque célébration.",
+        },
+        {
+          icon: "🍽️",
+          title: "Restaurant de cuisine traditionnelle",
+          description:
+            "Réservez votre table et savourez des plats traditionnels dans un cadre authentique.",
+        },
+        {
+          icon: "🎉",
+          title: "Traiteur mariages & événements",
+          description:
+            "Demandez un service traiteur pour vos mariages et événements, avec disponibilités et fourchettes de prix claires.",
+        },
+      ],
     },
     mainCards: [
       {
         icon: "utensils",
-        title: "Cuisine maison authentique",
+        title: "Cuisine algérienne authentique",
         description:
-          "De vrais plats algériens préparés par des cuisiniers talentueux près de chez vous, avec des ingrédients frais.",
+          "De vrais plats algériens par des cuisiniers maison, pâtissiers et restaurants traditionnels près de chez vous — toujours avec des ingrédients frais.",
       },
       {
         icon: "map-pin",
-        title: "Des cuisiniers près de vous",
+        title: "Des artisans du goût près de vous",
         description:
-          "Découvrez les cuisiniers maison autour de vous et commandez les plats qui ont bercé votre enfance.",
+          "Découvrez les cuisiniers maison, restaurants traditionnels et traiteurs d'événements autour de vous, et commandez les plats qui ont bercé votre enfance.",
       },
     ],
     features: {
       eyebrow: "Toutes les fonctionnalités",
       title: "Tout ce que Makletna apporte à votre table.",
       subtitle:
-        "Du choix des cuisines au partage de votre plat préféré — une expérience maison complète dans une seule application.",
+        "De la découverte des cuisines à la réservation d'une table ou à l'organisation d'un festin de mariage — une expérience culinaire algérienne complète dans une seule application.",
       items: [
         {
           icon: "🍲",
           title: "Explorer les plats",
           description:
-            "Parcourez des centaines de plats maison authentiques — couscous, chakhchoukha, dolma et bien plus.",
+            "Parcourez des centaines de plats authentiques — couscous, chakhchoukha, dolma, pâtisseries traditionnelles et bien plus.",
         },
         {
           icon: "👩‍🍳",
-          title: "Découvrir les cuisines",
+          title: "Découvrir les artisans du goût",
           description:
-            "Faites connaissance avec les cuisiniers maison derrière chaque plat et suivez celles et ceux que vous aimez.",
+            "Faites connaissance avec les cuisiniers maison, pâtissiers, restaurants et traiteurs derrière chaque plat.",
         },
         {
           icon: "🍽️",
           title: "Meeda",
           description:
             "Réunissez-vous autour d'une table familiale partagée — réservez votre place à la Meeda d'un cuisinier et partagez le repas ensemble.",
+        },
+        {
+          icon: "🪑",
+          title: "Réservation de table",
+          description:
+            "Réservez votre table dans des restaurants traditionnels et savourez un plat mijoté sur place.",
+        },
+        {
+          icon: "🎉",
+          title: "Traiteur pour événements",
+          description:
+            "Envoyez une demande de traiteur pour votre mariage ou événement — avec disponibilités et fourchettes de prix à l'avance.",
         },
         {
           icon: "💬",
@@ -611,13 +757,13 @@ export const translations = {
           icon: "📍",
           title: "Près de chez vous",
           description:
-            "Livraison ou retrait directement chez des cuisiniers de votre quartier — frais, rapide et local.",
+            "Livraison ou retrait directement auprès d'artisans du goût de votre quartier — frais, rapide et local.",
         },
         {
           icon: "❤️",
-          title: "Sain & fait maison",
+          title: "Sain & authentique",
           description:
-            "De vrais ingrédients et des recettes traditionnelles, mijotés comme on cuisine à la maison.",
+            "De vrais ingrédients et des recettes traditionnelles, mijotés comme la cuisine algérienne se doit de l'être.",
         },
       ],
     },
@@ -637,8 +783,8 @@ export const translations = {
       phone: "Numéro de téléphone (optionnel)",
       phonePlaceholder: "+213 ...",
       role: "Je suis...",
-      roleProvider1: "Chef professionnel",
-      roleProvider2: "Cuisinier maison",
+      roleCustomer: "Un client",
+      roleProvider: "Un prestataire (cuisinier, restaurant ou traiteur)",
       wilaya: "Wilaya",
       wilayaPlaceholder: "Sélectionnez votre wilaya",
       submit: "Rejoindre la liste d'attente",
@@ -649,7 +795,7 @@ export const translations = {
       error: "Une erreur s'est produite. Veuillez réessayer.",
     },
     footer: {
-      tagline: "Cuisine maison saine près de chez vous",
+      tagline: "Cuisine algérienne authentique près de chez vous — plats maison, pâtisseries, restaurants & traiteurs",
       contact: "Nous contacter",
       email: "contact@makletna.com",
       social: "Suivez-nous",
@@ -665,7 +811,7 @@ export const translations = {
     },
     terms: {
       title: "Conditions d'utilisation",
-      lastUpdated: "Dernière mise à jour : mai 2025",
+      lastUpdated: "Dernière mise à jour : août 2026",
       sections: [
         {
           title: "1. Acceptation des conditions",
@@ -673,7 +819,7 @@ export const translations = {
         },
         {
           title: "2. Description du service",
-          body: "Makletna est une place de marché en ligne qui met en relation des clients avec des cuisiniers maison (« Prestataires ») proposant des repas faits maison. Nous agissons en tant que plateforme intermédiaire et ne préparons, ne vendons ni ne livrons directement de nourriture. Toutes les transactions ont lieu entre les clients et les Prestataires.",
+          body: "Makletna est une place de marché en ligne qui met en relation des clients avec des prestataires de services culinaires indépendants (« Prestataires ») — notamment des cuisiniers maison, des pâtissiers traditionnels, des restaurants traditionnels et des traiteurs de mariages & événements — proposant des repas, des pâtisseries, des réservations de table et des services traiteur. Nous agissons en tant que plateforme intermédiaire et ne préparons, ne vendons ni ne livrons directement de nourriture. Toutes les transactions ont lieu entre les clients et les Prestataires.",
         },
         {
           title: "3. Comptes utilisateurs",
@@ -749,7 +895,14 @@ export const translations = {
     partners: {
       eyebrow: "Partenariat",
       title: "Devenir partenaire",
-      subtitle: "Rejoignez l'écosystème croissant de Makletna et développez votre activité aux côtés de la plateforme culinaire la plus prometteuse d'Algérie.",
+      subtitle: "Que vous soyez cuisinier maison, pâtissier traditionnel, restaurant traditionnel ou traiteur de mariages & événements — rejoignez l'écosystème croissant de Makletna et développez votre activité aux côtés de la plateforme culinaire la plus prometteuse d'Algérie.",
+      providerTypesTitle: "Qui peut nous rejoindre ?",
+      providerTypes: [
+        { title: "Plats maison", description: "Vendez vos plats du quotidien et vos recettes familiales aux clients près de chez vous." },
+        { title: "Pâtisseries traditionnelles", description: "Touchez les clients à la recherche de douceurs algériennes authentiques pour chaque occasion." },
+        { title: "Restaurant de cuisine traditionnelle", description: "Recevez des réservations de table et des commandes directement via l'application." },
+        { title: "Traiteur mariages & événements", description: "Recevez des demandes de traiteur avec disponibilités et fourchettes de prix claires." },
+      ],
       perksTitle: "Pourquoi nous rejoindre ?",
       perks: [
         { title: "Élargissez votre portée", description: "Accédez à des milliers de passionnés de cuisine à travers l'Algérie via notre plateforme." },
@@ -783,10 +936,10 @@ export const translations = {
     invest: {
       eyebrow: "Investisseurs",
       title: "Investir dans Makletna",
-      subtitle: "Participez à la révolution food-tech algérienne. Nous construisons l'infrastructure de la cuisine maison — et nous cherchons des investisseurs partageant notre mission pour grandir avec nous.",
+      subtitle: "Participez à la révolution food-tech algérienne. Nous construisons l'infrastructure de la cuisine algérienne authentique — des cuisines maison et pâtissiers aux restaurants et traiteurs d'événements — et nous cherchons des investisseurs partageant notre mission pour grandir avec nous.",
       highlightsTitle: "Pourquoi investir maintenant ?",
       highlights: [
-        { title: "Marché immense", description: "Le marché de la livraison alimentaire en Algérie est largement inexploité. La cuisine maison est un segment non desservi avec un potentiel énorme." },
+        { title: "Marché immense", description: "Le marché de la livraison alimentaire en Algérie est largement inexploité, à travers quatre catégories de prestataires : plats maison, pâtisseries traditionnelles, restaurants traditionnels et traiteurs d'événements." },
         { title: "Local d'abord", description: "Des racines profondes dans la culture et la communauté algériennes, avec un produit conçu pour les réalités locales." },
         { title: "Modèle innovant", description: "Nos fonctionnalités Meeda et Adwak créent des expériences de repas sociaux uniques au-delà de la simple livraison." },
         { title: "Fondamentaux solides", description: "Traction précoce, fondateurs passionnés et trajectoire claire vers une économie unitaire durable." },
@@ -795,7 +948,7 @@ export const translations = {
         title: "Traction précoce",
         stats: [
           { value: "58+", label: "Wilayas ciblées" },
-          { value: "2", label: "Verticales" },
+          { value: "4", label: "Catégories de prestataires" },
           { value: "1er", label: "Avantage pionnier" },
           { value: "DZ", label: "Fait pour l'Algérie" },
         ],

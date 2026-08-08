@@ -327,6 +327,32 @@ function MainCards() {
   );
 }
 
+function CategoriesSection() {
+  const { t } = useLanguage();
+  return (
+    <section id="categories" className="all-features">
+      <div className="all-features-inner">
+        <FadeIn style={{ textAlign: "center", marginBottom: 56 }}>
+          <span className="hero-eyebrow">{t.categories.eyebrow}</span>
+          <h2 className="all-features-title">{t.categories.title}</h2>
+          <p className="all-features-subtitle">{t.categories.subtitle}</p>
+        </FadeIn>
+        <div className="all-features-grid">
+          {t.categories.items.map((c, i) => (
+            <FadeIn key={i} delay={i * 0.06}>
+              <article className="feature-tile">
+                <div className="feature-tile-icon">{c.icon}</div>
+                <h3 className="feature-tile-title">{c.title}</h3>
+                <p className="feature-tile-desc">{c.description}</p>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AllFeatures() {
   const { t } = useLanguage();
   return (
@@ -556,8 +582,8 @@ function RegisterSection() {
                     }}
                   >
                     {[
-                      { value: "customer", label: t.form.roleProvider1 },
-                      { value: "provider", label: t.form.roleProvider2 },
+                      { value: "customer", label: t.form.roleCustomer },
+                      { value: "provider", label: t.form.roleProvider },
                     ].map(({ value, label }) => (
                       <button
                         key={value}
@@ -760,6 +786,7 @@ export default function LandingPage() {
       <main>
         <Hero />
         <MainCards />
+        <CategoriesSection />
         <AllFeatures />
         <FounderNote />
         <RegisterSection />
