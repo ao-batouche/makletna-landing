@@ -360,13 +360,13 @@ export const translations = {
         },
         {
           icon: "🍽️",
-          title: "مطعم مختص في الأكل التقليدي",
+          title: "مطاعم تقليدية",
           description:
             "احجز طاولتك واستمتع بأطباق تقليدية في أجواء أصيلة.",
         },
         {
           icon: "🎉",
-          title: "طباخ الأعراس و المناسبات",
+          title: "طباخ أعراس و مناسبات",
           description:
             "اطلب خدمة تموين لأفراحك ومناسباتك مع توضيح التوفر ونطاقات الأسعار.",
         },
@@ -574,8 +574,8 @@ export const translations = {
       providerTypes: [
         { title: "أكل منزلي", description: "بِع أطباقك اليومية ووصفاتك العائلية للزبائن القريبين منك." },
         { title: "حلويات تقليدية", description: "صِل إلى الزبائن الباحثين عن حلويات جزائرية أصيلة لكل مناسبة." },
-        { title: "مطعم مختص في الأكل التقليدي", description: "استقبل حجوزات الطاولات والطلبات مباشرة عبر التطبيق." },
-        { title: "طباخ الأعراس و المناسبات", description: "استقبل طلبات التموين مع توضيح التوفر ونطاقات الأسعار." },
+        { title: "مطاعم تقليدية", description: "استقبل حجوزات الطاولات والطلبات مباشرة عبر التطبيق." },
+        { title: "طباخ أعراس و مناسبات", description: "استقبل طلبات التموين مع توضيح التوفر ونطاقات الأسعار." },
       ],
       perksTitle: "لماذا الشراكة معنا؟",
       perks: [
@@ -679,7 +679,7 @@ export const translations = {
         },
         {
           icon: "🍮",
-          title: "Pâtisseries traditionnelles",
+          title: "Gâteaux traditionnels",
           description:
             "Des douceurs algériennes authentiques, préparées avec savoir-faire pour chaque célébration.",
         },
@@ -899,7 +899,7 @@ export const translations = {
       providerTypesTitle: "Qui peut nous rejoindre ?",
       providerTypes: [
         { title: "Plats maison", description: "Vendez vos plats du quotidien et vos recettes familiales aux clients près de chez vous." },
-        { title: "Pâtisseries traditionnelles", description: "Touchez les clients à la recherche de douceurs algériennes authentiques pour chaque occasion." },
+        { title: "Gâteaux traditionnels", description: "Touchez les clients à la recherche de douceurs algériennes authentiques pour chaque occasion." },
         { title: "Restaurant de cuisine traditionnelle", description: "Recevez des réservations de table et des commandes directement via l'application." },
         { title: "Traiteur mariages & événements", description: "Recevez des demandes de traiteur avec disponibilités et fourchettes de prix claires." },
       ],
