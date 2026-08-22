@@ -277,7 +277,7 @@ function Topbar() {
             </button>
           ))}
         </div>
-        <a href="#register" className="btn-pill btn-pill--ghost">
+        <a href="/app/login" className="btn-pill btn-pill--ghost">
           {t.nav.register}
         </a>
       </div>
@@ -296,7 +296,7 @@ function Hero() {
         </span>
         <h1 className="hero-headline">{t.hero.headline}</h1>
         <p className="hero-description">{t.hero.description}</p>
-        <a href="#register" className="btn-pill btn-pill--primary hero-cta">
+        <a href="/app/register" className="btn-pill btn-pill--primary hero-cta">
           {t.hero.cta}
         </a>
       </FadeIn>
