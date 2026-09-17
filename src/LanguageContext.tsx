@@ -16,10 +16,18 @@ const LanguageContext = createContext<LanguageContextValue>({
 });
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("ar");
+  const initialLang = new URLSearchParams(window.location.search).get("lang");
+  const [lang, setLangState] = useState<Lang>(
+    initialLang === "en" || initialLang === "fr" || initialLang === "ar"
+      ? initialLang
+      : "ar",
+  );
 
   function setLang(l: Lang) {
     setLangState(l);
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", l);
+    window.history.replaceState({}, "", url);
   }
 
   const isRtl = lang === "ar";

@@ -36,7 +36,7 @@ export const translations = {
           icon: "🍽️",
           title: "Traditional food restaurant",
           description:
-            "Book a table and enjoy traditional dishes in an authentic setting.",
+            "Discover traditional restaurants and order authentic Algerian dishes near you.",
         },
         {
           icon: "🎉",
@@ -62,57 +62,53 @@ export const translations = {
     ],
     features: {
       eyebrow: "All features",
-      title: "Everything Makletna brings to your table.",
+      title: "Made for the way Algeria eats and connects.",
       subtitle:
-        "From browsing kitchens to booking a table or planning a wedding feast — a complete Algerian food experience in a single app.",
+        "Explore local food, plan special occasions, and connect through Makletna's signature Meeda and Adwak experiences.",
       items: [
         {
+          id: "explore",
           icon: "🍲",
           title: "Explore meals",
           description:
             "Browse hundreds of authentic dishes — couscous, chakhchoukha, dolma, traditional sweets and more.",
         },
         {
+          id: "makers",
           icon: "👩‍🍳",
           title: "Discover food makers",
           description:
             "Get to know the home cooks, sweets makers, restaurants and caterers behind every dish.",
         },
         {
+          id: "meeda",
+          kind: "signature",
           icon: "🍽️",
           title: "Meeda",
           description:
             "Gather around a shared family table — reserve your spot at a cook's Meeda and share a meal together.",
         },
         {
-          icon: "🪑",
-          title: "Table booking",
-          description:
-            "Reserve your table at traditional restaurants and enjoy a slow-cooked meal on the spot.",
-        },
-        {
+          id: "catering",
           icon: "🎉",
           title: "Catering for events",
           description:
             "Send a catering request for your wedding or event — with availability and price ranges up front.",
         },
         {
+          id: "adwak",
+          kind: "signature",
           icon: "💬",
           title: "Adwak",
           description:
             "Share your taste, post your reviews and discover the dishes your neighbours love.",
         },
         {
+          id: "nearby",
           icon: "📍",
           title: "Near you",
           description:
             "Delivery or pickup straight from food makers in your neighbourhood — fresh, fast and local.",
-        },
-        {
-          icon: "❤️",
-          title: "Healthy & authentic",
-          description:
-            "Real ingredients and traditional recipes, slow-cooked the way Algerian food is meant to be made.",
         },
       ],
     },
@@ -131,9 +127,9 @@ export const translations = {
       emailPlaceholder: "example@email.com",
       phone: "Phone number (optional)",
       phonePlaceholder: "+213 ...",
-      role: "I am...",
-      roleCustomer: "A customer",
-      roleProvider: "A food provider (cook, restaurant or caterer)",
+      role: "Choose your role",
+      roleCustomer: "Customer",
+      roleProvider: "Service provider",
       wilaya: "Wilaya",
       wilayaPlaceholder: "Select your wilaya",
       submit: "Join the waitlist",
@@ -362,7 +358,7 @@ export const translations = {
           icon: "🍽️",
           title: "مطاعم تقليدية",
           description:
-            "احجز طاولتك واستمتع بأطباق تقليدية في أجواء أصيلة.",
+            "اكتشف المطاعم التقليدية واطلب أطباقاً جزائرية أصيلة قريبة منك.",
         },
         {
           icon: "🎉",
@@ -390,54 +386,50 @@ export const translations = {
       eyebrow: "كل الميّزات",
       title: "كل ما تقدّمه ماكلتنا على مائدتك.",
       subtitle:
-        "من تصفّح المطابخ إلى حجز طاولة أو التحضير لمائدة عرس — تجربة طعام جزائرية متكاملة في تطبيق واحد.",
+        "استكشف الطعام المحلي، خطّط لمناسباتك، وتواصل عبر تجربتي ميدة وأذواق المميزتين من ماكلتنا.",
       items: [
         {
+          id: "explore",
           icon: "🍲",
           title: "استكشف الوجبات",
           description:
             "تصفّح مئات الأطباق الأصيلة — كسكس، شخشوخة، دولمة، حلويات تقليدية وأكثر.",
         },
         {
+          id: "makers",
           icon: "👩‍🍳",
           title: "اكتشف صنّاع الطعام",
           description:
             "تعرّف على الطهاة المنزليين وصنّاع الحلويات والمطاعم وطباخي الأعراس خلف كل طبق.",
         },
         {
+          id: "meeda",
+          kind: "signature",
           icon: "🍽️",
           title: "ميدة",
           description:
             "اجتمع حول مائدة عائلية مشتركة — احجز مكانك على ميدة الطاهي وتناولوا الطعام معاً.",
         },
         {
-          icon: "🪑",
-          title: "حجز الطاولات",
-          description:
-            "احجز طاولتك في المطاعم المتخصصة في الأكل التقليدي واستمتع بوجبتك في عين المكان.",
-        },
-        {
+          id: "catering",
           icon: "🎉",
           title: "تموين المناسبات",
           description:
             "أرسل طلب تموين لعرسك أو مناسبتك — مع التوفر ونطاقات الأسعار مسبقاً.",
         },
         {
+          id: "adwak",
+          kind: "signature",
           icon: "💬",
           title: "أذواق",
           description: "شارك ذوقك، اكتب آراءك واكتشف ما يحبّه جيرانك من أطباق.",
         },
         {
+          id: "nearby",
           icon: "📍",
           title: "قريب منك",
           description:
             "توصيل أو استلام من صنّاع طعام في حيّك مباشرةً — طازج وسريع ومحلّي.",
-        },
-        {
-          icon: "❤️",
-          title: "صحي وأصيل",
-          description:
-            "مكوّنات حقيقية ووصفات تقليدية، مطبوخة على مهلٍ كما يجب أن يُطهى الطعام الجزائري.",
         },
       ],
     },
@@ -456,9 +448,9 @@ export const translations = {
       emailPlaceholder: "example@email.com",
       phone: "رقم الهاتف (اختياري)",
       phonePlaceholder: "+213 ...",
-      role: "أنا...",
+      role: "اختر دورك",
       roleCustomer: "زبون",
-      roleProvider: "مقدّم خدمة طعام (طباخ، مطعم أو طباخ أعراس)",
+      roleProvider: "مقدّم خدمة",
       wilaya: "الولاية",
       wilayaPlaceholder: "اختر ولايتك",
       submit: "انضم إلى قائمة الانتظار",
@@ -687,7 +679,7 @@ export const translations = {
           icon: "🍽️",
           title: "Restaurant de cuisine traditionnelle",
           description:
-            "Réservez votre table et savourez des plats traditionnels dans un cadre authentique.",
+            "Découvrez les restaurants traditionnels et commandez des plats algériens authentiques près de chez vous.",
         },
         {
           icon: "🎉",
@@ -715,55 +707,51 @@ export const translations = {
       eyebrow: "Toutes les fonctionnalités",
       title: "Tout ce que Makletna apporte à votre table.",
       subtitle:
-        "De la découverte des cuisines à la réservation d'une table ou à l'organisation d'un festin de mariage — une expérience culinaire algérienne complète dans une seule application.",
+        "Explorez la cuisine locale, préparez vos événements et échangez grâce aux expériences signatures Meeda et Adwak de Makletna.",
       items: [
         {
+          id: "explore",
           icon: "🍲",
           title: "Explorer les plats",
           description:
             "Parcourez des centaines de plats authentiques — couscous, chakhchoukha, dolma, pâtisseries traditionnelles et bien plus.",
         },
         {
+          id: "makers",
           icon: "👩‍🍳",
           title: "Découvrir les artisans du goût",
           description:
             "Faites connaissance avec les cuisiniers maison, pâtissiers, restaurants et traiteurs derrière chaque plat.",
         },
         {
+          id: "meeda",
+          kind: "signature",
           icon: "🍽️",
           title: "Meeda",
           description:
             "Réunissez-vous autour d'une table familiale partagée — réservez votre place à la Meeda d'un cuisinier et partagez le repas ensemble.",
         },
         {
-          icon: "🪑",
-          title: "Réservation de table",
-          description:
-            "Réservez votre table dans des restaurants traditionnels et savourez un plat mijoté sur place.",
-        },
-        {
+          id: "catering",
           icon: "🎉",
           title: "Traiteur pour événements",
           description:
             "Envoyez une demande de traiteur pour votre mariage ou événement — avec disponibilités et fourchettes de prix à l'avance.",
         },
         {
+          id: "adwak",
+          kind: "signature",
           icon: "💬",
           title: "Adwak",
           description:
             "Partagez votre goût, publiez vos avis et découvrez les plats que vos voisins adorent.",
         },
         {
+          id: "nearby",
           icon: "📍",
           title: "Près de chez vous",
           description:
             "Livraison ou retrait directement auprès d'artisans du goût de votre quartier — frais, rapide et local.",
-        },
-        {
-          icon: "❤️",
-          title: "Sain & authentique",
-          description:
-            "De vrais ingrédients et des recettes traditionnelles, mijotés comme la cuisine algérienne se doit de l'être.",
         },
       ],
     },
@@ -782,9 +770,9 @@ export const translations = {
       emailPlaceholder: "exemple@email.com",
       phone: "Numéro de téléphone (optionnel)",
       phonePlaceholder: "+213 ...",
-      role: "Je suis...",
-      roleCustomer: "Un client",
-      roleProvider: "Un prestataire (cuisinier, restaurant ou traiteur)",
+      role: "Choisissez votre rôle",
+      roleCustomer: "Client",
+      roleProvider: "Prestataire de services",
       wilaya: "Wilaya",
       wilayaPlaceholder: "Sélectionnez votre wilaya",
       submit: "Rejoindre la liste d'attente",

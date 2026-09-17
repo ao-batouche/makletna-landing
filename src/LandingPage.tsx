@@ -5,8 +5,9 @@ import { FaFacebook, FaXTwitter, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { useLanguage } from "./LanguageContext";
 import type { Lang } from "./translations";
 
-const LOGO_URL = "/makletna-logo.png";
-const BRAND_MARK_URL = "/makletna-spoon.png";
+const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
+const LOGO_URL = asset("makletna-logo.png");
+const BRAND_MARK_URL = asset("makletna-spoon.png");
 
 const CARD_ICON_MAP: Record<string, React.ReactNode> = {
   utensils: <Utensils size={20} />,
@@ -15,22 +16,22 @@ const CARD_ICON_MAP: Record<string, React.ReactNode> = {
 
 const CATEGORY_VISUALS = [
   {
-    image: "/category/home-meals.png",
+    image: asset("category/home-meals.webp"),
     accent: "#D97D3E",
     tint: "#FBEFE3",
   },
   {
-    image: "/category/sweets.png",
+    image: asset("category/sweets.webp"),
     accent: "#E28AAE",
     tint: "#FBEEF4",
   },
   {
-    image: "/category/restaurant.png",
+    image: asset("category/restaurant.webp"),
     accent: "#D65A4A",
     tint: "#FBEDEA",
   },
   {
-    image: "/category/caterer.png",
+    image: asset("category/caterer.webp"),
     accent: "#7C5CBF",
     tint: "#F1EDFA",
   },
@@ -65,10 +66,10 @@ function FadeIn({
 
 /* ── Phone mockup that peeks from the bottom of the feature cards ── */
 const FOOD = {
-  couscous: "/food/couscous.webp",
-  chakhchoukha: "/food/chakhchoukha.webp",
-  dolma: "/food/dolma.webp",
-  bourek: "/food/bourek.webp",
+  couscous: asset("food/couscous.webp"),
+  chakhchoukha: asset("food/chakhchoukha.webp"),
+  dolma: asset("food/dolma.webp"),
+  bourek: asset("food/bourek.webp"),
 };
 
 function PhoneStatusBar() {
@@ -295,6 +296,8 @@ function Topbar() {
               key={code}
               onClick={() => setLang(code)}
               className={`lang-btn ${lang === code ? "is-active" : ""}`}
+              aria-pressed={lang === code}
+              aria-label={`Switch language to ${code === "ar" ? "Arabic" : code === "fr" ? "French" : "English"}`}
             >
               {label}
             </button>
@@ -337,7 +340,7 @@ function MainCards() {
           <FadeIn key={i} delay={i * 0.1}>
             <article className="main-card">
               <div className="main-card-icon">{CARD_ICON_MAP[card.icon]}</div>
-              <h3 className="main-card-title">{card.title}</h3>
+        <h2 className="main-card-title">{card.title}</h2>
               <p className="main-card-body">{card.description}</p>
               <div className="main-card-phone-wrap">
                 <CardPhoneMockup variant={variants[i] ?? "browse"} />
@@ -373,7 +376,13 @@ function CategoriesSection() {
                 }
               >
                 <div className="feature-tile-icon category-tile-icon">
-                  <img src={CATEGORY_VISUALS[i].image} alt="" />
+                  <img
+                    src={CATEGORY_VISUALS[i].image}
+                    alt={c.title}
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                  />
                 </div>
                 <h3 className="feature-tile-title">{c.title}</h3>
                 <p className="feature-tile-desc">{c.description}</p>
@@ -396,10 +405,11 @@ function AllFeatures() {
           <h2 className="all-features-title">{t.features.title}</h2>
           <p className="all-features-subtitle">{t.features.subtitle}</p>
         </FadeIn>
-        <div className="all-features-grid">
+        <div className="all-features-grid feature-hierarchy">
           {t.features.items.map((f, i) => (
-            <FadeIn key={i} delay={i * 0.06}>
-              <article className="feature-tile">
+            <FadeIn key={f.id} delay={i * 0.06} className={"kind" in f && f.kind === "signature" ? "feature-span" : ""}>
+              <article className={`feature-tile ${"kind" in f && f.kind === "signature" ? `feature-tile--signature feature-tile--${f.id}` : ""}`}>
+                {"kind" in f && f.kind === "signature" && <span className="signature-label">{t.features.eyebrow}</span>}
                 <div className="feature-tile-icon">{f.icon}</div>
                 <h3 className="feature-tile-title">{f.title}</h3>
                 <p className="feature-tile-desc">{f.description}</p>
@@ -606,33 +616,29 @@ function RegisterSection() {
                   />
                 </div>
                 <div>
-                  <label className="field-label">{t.form.role}</label>
-                  <div
-                    style={{
-                      display: "grid",
-                      gridTemplateColumns: "1fr 1fr",
-                      gap: 10,
-                    }}
-                  >
+                  <fieldset className="role-fieldset">
+                    <legend className="field-label">{t.form.role}</legend>
+                    <div className="role-options">
                     {[
                       { value: "customer", label: t.form.roleCustomer },
                       { value: "provider", label: t.form.roleProvider },
                     ].map(({ value, label }) => (
-                      <button
+                      <label
                         key={value}
-                        type="button"
-                        onClick={() =>
-                          setForm({
-                            ...form,
-                            role: value as "customer" | "provider",
-                          })
-                        }
                         className={`role-btn ${form.role === value ? "is-active" : ""}`}
                       >
-                        {label}
-                      </button>
+                        <input
+                          type="radio"
+                          name="role"
+                          value={value}
+                          checked={form.role === value}
+                          onChange={() => setForm({ ...form, role: value as "customer" | "provider" })}
+                        />
+                        <span>{label}</span>
+                      </label>
                     ))}
-                  </div>
+                    </div>
+                  </fieldset>
                 </div>
                 <div>
                   <label className="field-label">{t.form.wilaya}</label>
@@ -703,7 +709,7 @@ function FounderNote() {
     <section className="founder">
       <FadeIn>
         <div className="founder-inner">
-          <h3 className="founder-title">{t.founder.title}</h3>
+          <h2 className="founder-title">{t.founder.title}</h2>
           <p className="founder-body">{t.founder.body}</p>
         </div>
       </FadeIn>
@@ -795,10 +801,10 @@ function Footer() {
       </div>
 
       <div className="site-footer-links">
-        <a href="/terms" className="footer-link">{t.footer.links.terms}</a>
-        <a href="/contact" className="footer-link">{t.footer.links.contact}</a>
-        <a href="/partners" className="footer-link">{t.footer.links.partners}</a>
-        <a href="/invest" className="footer-link">{t.footer.links.invest}</a>
+        <a href={`${import.meta.env.BASE_URL}terms`} className="footer-link">{t.footer.links.terms}</a>
+        <a href={`${import.meta.env.BASE_URL}contact`} className="footer-link">{t.footer.links.contact}</a>
+        <a href={`${import.meta.env.BASE_URL}partners`} className="footer-link">{t.footer.links.partners}</a>
+        <a href={`${import.meta.env.BASE_URL}invest`} className="footer-link">{t.footer.links.invest}</a>
         <span style={{ flex: 1 }} />
       </div>
 
