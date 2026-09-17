@@ -641,11 +641,14 @@ html[dir="rtl"] .hero-headline {
 }
 .all-features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
-@media (max-width: 900px) {
-  .all-features-grid { grid-template-columns: repeat(2, 1fr); }
+.category-grid-item {
+  min-width: 0;
+}
+.category-grid-item--priority {
+  grid-column: span 2;
 }
 .feature-hierarchy {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -678,8 +681,9 @@ html[dir="rtl"] .hero-headline {
 @media (max-width: 900px) {
   .feature-hierarchy { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .all-features-grid { grid-template-columns: 1fr; }
+  .category-grid-item--priority { grid-column: auto; }
   .feature-span { grid-column: auto; }
   .feature-tile--signature { min-height: 0; }
 }
@@ -697,6 +701,20 @@ html[dir="rtl"] .hero-headline {
   background: var(--category-tint);
   border-color: color-mix(in srgb, var(--category-accent) 24%, transparent);
   border-top: 3px solid var(--category-accent);
+}
+.category-tile--priority {
+  padding: clamp(34px, 4vw, 46px);
+}
+.category-tile--priority .category-tile-icon {
+  width: clamp(96px, 10vw, 112px);
+  height: clamp(96px, 10vw, 112px);
+}
+.category-tile--priority .feature-tile-title {
+  font-size: clamp(25px, 2.8vw, 32px);
+}
+.category-tile--priority .feature-tile-desc {
+  font-size: clamp(15px, 1.6vw, 17px);
+  max-width: 620px;
 }
 .feature-tile:hover {
   transform: translateY(-3px);
@@ -749,6 +767,18 @@ html[dir="rtl"] .hero-headline {
   font-size: 14.5px;
   color: #6B5648;
   line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .category-tile--priority { padding: 34px 30px; }
+  .category-tile--priority .category-tile-icon {
+    width: 100px;
+    height: 100px;
+  }
+  .category-tile--priority .feature-tile-title { font-size: 26px; }
+  .category-tile--priority .feature-tile-desc {
+    font-size: 15.5px;
+    max-width: none;
+  }
 }
 
 /* ── Founder note ── */

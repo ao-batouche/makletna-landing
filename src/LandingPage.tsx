@@ -16,21 +16,29 @@ const CARD_ICON_MAP: Record<string, React.ReactNode> = {
 
 const CATEGORY_VISUALS = [
   {
+    id: "homemade-food",
+    priority: false,
     image: asset("category/home-meals.webp"),
     accent: "#D97D3E",
     tint: "#FBEFE3",
   },
   {
+    id: "traditional-sweets",
+    priority: true,
     image: asset("category/sweets.webp"),
     accent: "#E28AAE",
     tint: "#FBEEF4",
   },
   {
+    id: "traditional-restaurant",
+    priority: false,
     image: asset("category/restaurant.webp"),
     accent: "#D65A4A",
     tint: "#FBEDEA",
   },
   {
+    id: "wedding-events-caterer",
+    priority: true,
     image: asset("category/caterer.webp"),
     accent: "#7C5CBF",
     tint: "#F1EDFA",
@@ -364,20 +372,26 @@ function CategoriesSection() {
           <p className="all-features-subtitle">{t.categories.subtitle}</p>
         </FadeIn>
         <div className="all-features-grid">
-          {t.categories.items.map((c, i) => (
-            <FadeIn key={i} delay={i * 0.06}>
+          {t.categories.items.map((c, i) => {
+            const visual = CATEGORY_VISUALS[i];
+            return (
+            <FadeIn
+              key={visual.id}
+              delay={i * 0.06}
+              className={`category-grid-item${visual.priority ? " category-grid-item--priority" : ""}`}
+            >
               <article
-                className="feature-tile category-tile"
+                className={`feature-tile category-tile${visual.priority ? " category-tile--priority" : ""}`}
                 style={
                   {
-                    "--category-accent": CATEGORY_VISUALS[i].accent,
-                    "--category-tint": CATEGORY_VISUALS[i].tint,
+                    "--category-accent": visual.accent,
+                    "--category-tint": visual.tint,
                   } as React.CSSProperties
                 }
               >
                 <div className="feature-tile-icon category-tile-icon">
                   <img
-                    src={CATEGORY_VISUALS[i].image}
+                    src={visual.image}
                     alt={c.title}
                     width="88"
                     height="88"
@@ -388,7 +402,8 @@ function CategoriesSection() {
                 <p className="feature-tile-desc">{c.description}</p>
               </article>
             </FadeIn>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
