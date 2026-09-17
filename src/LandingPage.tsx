@@ -13,6 +13,29 @@ const CARD_ICON_MAP: Record<string, React.ReactNode> = {
   "map-pin": <MapPin size={20} />,
 };
 
+const CATEGORY_VISUALS = [
+  {
+    image: "/category/home-meals.png",
+    accent: "#D97D3E",
+    tint: "#FBEFE3",
+  },
+  {
+    image: "/category/sweets.png",
+    accent: "#E28AAE",
+    tint: "#FBEEF4",
+  },
+  {
+    image: "/category/restaurant.png",
+    accent: "#D65A4A",
+    tint: "#FBEDEA",
+  },
+  {
+    image: "/category/caterer.png",
+    accent: "#7C5CBF",
+    tint: "#F1EDFA",
+  },
+] as const;
+
 function FadeIn({
   children,
   delay = 0,
@@ -340,8 +363,18 @@ function CategoriesSection() {
         <div className="all-features-grid">
           {t.categories.items.map((c, i) => (
             <FadeIn key={i} delay={i * 0.06}>
-              <article className="feature-tile">
-                <div className="feature-tile-icon">{c.icon}</div>
+              <article
+                className="feature-tile category-tile"
+                style={
+                  {
+                    "--category-accent": CATEGORY_VISUALS[i].accent,
+                    "--category-tint": CATEGORY_VISUALS[i].tint,
+                  } as React.CSSProperties
+                }
+              >
+                <div className="feature-tile-icon category-tile-icon">
+                  <img src={CATEGORY_VISUALS[i].image} alt="" />
+                </div>
                 <h3 className="feature-tile-title">{c.title}</h3>
                 <p className="feature-tile-desc">{c.description}</p>
               </article>
