@@ -297,7 +297,7 @@ function Topbar() {
         </span>
       </div>
 
-      <div className="topbar-actions">
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <div className="lang-switch">
           {langs.map(({ code, label }) => (
             <button
@@ -311,14 +311,9 @@ function Topbar() {
             </button>
           ))}
         </div>
-        <div className="topbar-auth-actions">
-          <a href="/app/login" className="btn-pill btn-pill--ghost">
-            {t.nav.login}
-          </a>
-          <a href="/app/register" className="btn-pill btn-pill--primary">
-            {t.nav.signUp}
-          </a>
-        </div>
+        <a href="/app/login" className="btn-pill btn-pill--ghost">
+          {t.nav.register}
+        </a>
       </div>
     </header>
   );

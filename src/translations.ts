@@ -5,8 +5,6 @@ export const translations = {
     nav: {
       appName: "Makletna",
       register: "Register your interest",
-      login: "Log in",
-      signUp: "Sign up",
       backHome: "← Back",
     },
     hero: {
@@ -329,8 +327,6 @@ export const translations = {
     nav: {
       appName: "ماكلتنا",
       register: "سجّل اهتمامك",
-      login: "تسجيل الدخول",
-      signUp: "إنشاء حساب",
       backHome: "→ رجوع",
     },
     hero: {
@@ -652,8 +648,6 @@ export const translations = {
     nav: {
       appName: "Makletna",
       register: "Manifester votre intérêt",
-      login: "Se connecter",
-      signUp: "S’inscrire",
       backHome: "← Retour",
     },
     hero: {
