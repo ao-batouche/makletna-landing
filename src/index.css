@@ -137,13 +137,6 @@ h1, h2, h3, h4, h5, h6, .font-display {
   border-bottom: 1px solid rgba(44, 24, 16, 0.06);
 }
 
-.topbar-actions,
-.topbar-auth-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .lang-switch {
   display: flex;
   background: rgba(44,24,16,0.04);
@@ -173,20 +166,14 @@ h1, h2, h3, h4, h5, h6, .font-display {
   .topbar {
     padding: 12px 14px;
     gap: 8px;
-    flex-wrap: wrap;
   }
   .topbar img { height: 30px !important; }
   .lang-switch { padding: 2px; }
   .lang-btn { padding: 4px 8px; font-size: 11px; }
   .topbar .btn-pill {
-    padding: 8px 12px;
+    padding: 8px 14px;
     font-size: 12.5px;
   }
-  .topbar-actions {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .topbar-auth-actions { gap: 6px; }
 }
 
 /* ── Buttons ── */
