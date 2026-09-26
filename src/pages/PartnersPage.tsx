@@ -13,7 +13,7 @@ const PARTNER_PERKS_ICONS = [
 ];
 
 export default function PartnersPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -60,7 +60,7 @@ export default function PartnersPage() {
   return (
     <div style={{ minHeight: "100vh", background: "#FBF5EA" }}>
       <header className="topbar">
-        <Link href="/">
+        <Link href={`/?lang=${lang}`}>
           <div className="brand-lockup brand-lockup--header" style={{ cursor: "pointer" }}>
             <img src={BRAND_MARK_URL} alt="" style={{ height: 56, objectFit: "contain" }} />
             <span className="brand-wordmark brand-wordmark--header font-display">
@@ -68,7 +68,7 @@ export default function PartnersPage() {
             </span>
           </div>
         </Link>
-        <Link href="/" className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
+        <Link href={`/?lang=${lang}`} className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
       </header>
 
       <section className="subpage-top--hero" style={{ background: "linear-gradient(135deg, #2C1810 0%, #5C3520 100%)", paddingLeft: 24, paddingRight: 24, paddingBottom: 80, textAlign: "center" }}>

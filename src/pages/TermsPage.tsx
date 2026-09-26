@@ -4,12 +4,12 @@ import { Link } from "wouter";
 const BRAND_MARK_URL = `${import.meta.env.BASE_URL}makletna-spoon.png`;
 
 export default function TermsPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <div style={{ minHeight: "100vh", background: "#FBF5EA" }}>
       <header className="topbar">
-        <Link href="/">
+        <Link href={`/?lang=${lang}`}>
           <div className="brand-lockup brand-lockup--header" style={{ cursor: "pointer" }}>
             <img src={BRAND_MARK_URL} alt="" style={{ height: 56, objectFit: "contain" }} />
             <span className="brand-wordmark brand-wordmark--header font-display">
@@ -17,7 +17,7 @@ export default function TermsPage() {
             </span>
           </div>
         </Link>
-        <Link href="/" className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
+        <Link href={`/?lang=${lang}`} className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
       </header>
 
       <main className="subpage-top" style={{ maxWidth: 760, margin: "0 auto", paddingLeft: 24, paddingRight: 24, paddingBottom: 80 }}>
