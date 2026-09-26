@@ -297,7 +297,7 @@ function Topbar() {
         </span>
       </div>
 
-      <div className="topbar-actions">
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         <div className="lang-switch">
           {langs.map(({ code, label }) => (
             <button
@@ -305,20 +305,15 @@ function Topbar() {
               onClick={() => setLang(code)}
               className={`lang-btn ${lang === code ? "is-active" : ""}`}
               aria-pressed={lang === code}
-              aria-label={t.nav.languageSwitch[code]}
+              aria-label={`Switch language to ${code === "ar" ? "Arabic" : code === "fr" ? "French" : "English"}`}
             >
               {label}
             </button>
           ))}
         </div>
-        <div className="topbar-auth-actions">
-          <a href="/app/login" className="btn-pill btn-pill--ghost">
-            {t.nav.login}
-          </a>
-          <a href="/app/register" className="btn-pill btn-pill--primary">
-            {t.nav.signUp}
-          </a>
-        </div>
+        <a href="/app/login" className="btn-pill btn-pill--ghost">
+          {t.nav.register}
+        </a>
       </div>
     </header>
   );
@@ -738,7 +733,7 @@ function FounderNote() {
 }
 
 function Footer() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
   const socialLinks = [
     {
@@ -821,10 +816,10 @@ function Footer() {
       </div>
 
       <div className="site-footer-links">
-        <a href={`${import.meta.env.BASE_URL}terms?lang=${lang}`} className="footer-link">{t.footer.links.terms}</a>
-        <a href={`${import.meta.env.BASE_URL}contact?lang=${lang}`} className="footer-link">{t.footer.links.contact}</a>
-        <a href={`${import.meta.env.BASE_URL}partners?lang=${lang}`} className="footer-link">{t.footer.links.partners}</a>
-        <a href={`${import.meta.env.BASE_URL}invest?lang=${lang}`} className="footer-link">{t.footer.links.invest}</a>
+        <a href={`${import.meta.env.BASE_URL}terms`} className="footer-link">{t.footer.links.terms}</a>
+        <a href={`${import.meta.env.BASE_URL}contact`} className="footer-link">{t.footer.links.contact}</a>
+        <a href={`${import.meta.env.BASE_URL}partners`} className="footer-link">{t.footer.links.partners}</a>
+        <a href={`${import.meta.env.BASE_URL}invest`} className="footer-link">{t.footer.links.invest}</a>
         <span style={{ flex: 1 }} />
       </div>
 

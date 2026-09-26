@@ -5,14 +5,7 @@ export const translations = {
     nav: {
       appName: "Makletna",
       register: "Register your interest",
-      login: "Log in",
-      signUp: "Sign up",
       backHome: "← Back",
-      languageSwitch: {
-        en: "Switch language to English",
-        ar: "Switch language to Arabic",
-        fr: "Switch language to French",
-      },
     },
     hero: {
       badge: "Coming soon",
@@ -222,7 +215,6 @@ export const translations = {
       infoEmail: "Email",
       infoPhone: "Phone",
       infoAddress: "Location",
-      infoAddressValue: "Algiers, Algeria",
       name: "Full name",
       namePlaceholder: "Your name",
       email: "Email address",
@@ -244,10 +236,6 @@ export const translations = {
         subjectRequired: "Please enter a subject.",
         messageRequired: "Please write a message.",
       },
-    },
-    notFound: {
-      title: "Page not found",
-      message: "We couldn't find the page you're looking for.",
     },
     partners: {
       eyebrow: "Partnership",
@@ -339,14 +327,7 @@ export const translations = {
     nav: {
       appName: "ماكلتنا",
       register: "سجّل اهتمامك",
-      login: "تسجيل الدخول",
-      signUp: "إنشاء حساب",
       backHome: "→ رجوع",
-      languageSwitch: {
-        en: "التبديل إلى الإنجليزية",
-        ar: "التبديل إلى العربية",
-        fr: "التبديل إلى الفرنسية",
-      },
     },
     hero: {
       badge: "قريباً",
@@ -555,7 +536,6 @@ export const translations = {
       infoEmail: "البريد الإلكتروني",
       infoPhone: "الهاتف",
       infoAddress: "الموقع",
-      infoAddressValue: "الجزائر العاصمة، الجزائر",
       name: "الاسم الكامل",
       namePlaceholder: "اسمك",
       email: "البريد الإلكتروني",
@@ -577,10 +557,6 @@ export const translations = {
         subjectRequired: "يرجى إدخال موضوع.",
         messageRequired: "يرجى كتابة رسالة.",
       },
-    },
-    notFound: {
-      title: "الصفحة غير موجودة",
-      message: "عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها.",
     },
     partners: {
       eyebrow: "الشراكة",
@@ -672,14 +648,7 @@ export const translations = {
     nav: {
       appName: "Makletna",
       register: "Manifester votre intérêt",
-      login: "Se connecter",
-      signUp: "S’inscrire",
       backHome: "← Retour",
-      languageSwitch: {
-        en: "Passer en anglais",
-        ar: "Passer en arabe",
-        fr: "Passer en français",
-      },
     },
     hero: {
       badge: "Bientôt",
@@ -889,7 +858,6 @@ export const translations = {
       infoEmail: "E-mail",
       infoPhone: "Téléphone",
       infoAddress: "Localisation",
-      infoAddressValue: "Alger, Algérie",
       name: "Nom complet",
       namePlaceholder: "Votre nom",
       email: "Adresse e-mail",
@@ -911,10 +879,6 @@ export const translations = {
         subjectRequired: "Veuillez saisir un sujet.",
         messageRequired: "Veuillez écrire un message.",
       },
-    },
-    notFound: {
-      title: "Page introuvable",
-      message: "La page que vous recherchez est introuvable.",
     },
     partners: {
       eyebrow: "Partenariat",
