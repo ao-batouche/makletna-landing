@@ -6,7 +6,7 @@ import { CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 const BRAND_MARK_URL = `${import.meta.env.BASE_URL}makletna-spoon.png`;
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -60,7 +60,7 @@ export default function ContactPage() {
   return (
     <div style={{ minHeight: "100vh", background: "#FBF5EA" }}>
       <header className="topbar">
-        <Link href="/">
+        <Link href={`/?lang=${lang}`}>
           <div className="brand-lockup brand-lockup--header" style={{ cursor: "pointer" }}>
             <img src={BRAND_MARK_URL} alt="" style={{ height: 56, objectFit: "contain" }} />
             <span className="brand-wordmark brand-wordmark--header font-display">
@@ -68,7 +68,7 @@ export default function ContactPage() {
             </span>
           </div>
         </Link>
-        <Link href="/" className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
+        <Link href={`/?lang=${lang}`} className="btn-pill btn-pill--ghost">{t.nav.backHome}</Link>
       </header>
 
       <main className="subpage-top" style={{ maxWidth: 1000, margin: "0 auto", paddingLeft: 24, paddingRight: 24, paddingBottom: 80 }}>
@@ -86,17 +86,17 @@ export default function ContactPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: 24, marginBottom: 40 }}>
               {[
-                { icon: <Mail size={18} />, label: t.contact.infoEmail, value: "contact@makletna.com" },
-                { icon: <Phone size={18} />, label: t.contact.infoPhone, value: "+213 23 45 67 89" },
-                { icon: <MapPin size={18} />, label: t.contact.infoAddress, value: "Alger, Algérie" },
-              ].map(({ icon, label, value }) => (
+                { icon: <Mail size={18} />, label: t.contact.infoEmail, value: "contact@makletna.com", dir: "ltr" as const },
+                { icon: <Phone size={18} />, label: t.contact.infoPhone, value: "+213 23 45 67 89", dir: "ltr" as const },
+                { icon: <MapPin size={18} />, label: t.contact.infoAddress, value: t.contact.infoAddressValue },
+              ].map(({ icon, label, value, dir }) => (
                 <div key={label} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                   <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(174,106,52,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#AE6A34", flexShrink: 0 }}>
                     {icon}
                   </div>
                   <div>
                     <div style={{ fontSize: 12, fontWeight: 600, color: "#9C7B6A", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 2 }}>{label}</div>
-                    <div style={{ fontSize: 14.5, color: "#2C1810" }}>{value}</div>
+                    <div dir={dir} style={{ fontSize: 14.5, color: "#2C1810" }}>{value}</div>
                   </div>
                 </div>
               ))}
