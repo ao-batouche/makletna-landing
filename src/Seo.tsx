@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useLanguage } from "./LanguageContext";
 
-const siteBase = () => `${window.location.origin}${import.meta.env.BASE_URL.replace(/\/$/, "")}`;
+const siteBase = () => window.location.origin;
 const ROUTES = {
   "/": {
     en: ["Makletna | Authentic Algerian Food Near You", "Discover home cooks, traditional sweets, Algerian restaurants and event caterers near you with Makletna."],
@@ -50,7 +50,7 @@ export function Seo() {
     const [title, description] = route;
     const base = siteBase();
     const canonical = location === "/" ? `${base}/` : `${base}${location}`;
-    const image = `${base}/opengraph.jpg`;
+    const image = `${window.location.origin}${import.meta.env.BASE_URL}opengraph.jpg`;
 
     document.title = title;
     upsertMeta('meta[name="description"]', "name", "description", description);

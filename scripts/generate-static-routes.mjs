@@ -5,8 +5,8 @@ const dist = process.env.SEO_DIST_DIR
   ? path.resolve(process.env.SEO_DIST_DIR)
   : path.resolve(new URL("../dist/public", import.meta.url).pathname);
 const shell = await readFile(path.join(dist, "index.html"), "utf8");
-const siteUrl = (process.env.SEO_SITE_URL ?? "https://makletna.replit.app").replace(/\/$/, "");
-const baseSegment = (process.env.SEO_BASE_PATH ?? "/landing/").replace(/^\/|\/$/g, "");
+const siteUrl = (process.env.SEO_SITE_URL ?? "https://makletna.com").replace(/\/$/, "");
+const baseSegment = (process.env.SEO_BASE_PATH ?? "/").replace(/^\/|\/$/g, "");
 const basePath = baseSegment ? `/${baseSegment}/` : "/";
 const routes = {
   terms: {

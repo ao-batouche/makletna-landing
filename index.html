@@ -26,6 +26,29 @@
     <script type="application/ld+json">
       {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://makletna.com/#organization","name":"Makletna","url":"https://makletna.com/","logo":"https://makletna.com/makletna-logo.png"},{"@type":"WebSite","@id":"https://makletna.com/#website","name":"Makletna","url":"https://makletna.com/","publisher":{"@id":"https://makletna.com/#organization"},"inLanguage":["ar","en","fr"]}]}
     </script>
+    <script>
+      if (location.pathname === "/" || location.pathname === "/landing/") {
+        try {
+          const session = JSON.parse(localStorage.getItem("makletna_session") || "null");
+          if (session?.token && ["customer", "provider"].includes(session?.user?.role)) {
+            fetch("/api/users/me", {
+              headers: { Authorization: `Bearer ${session.token}` },
+              cache: "no-store"
+            }).then(async (response) => {
+              if (response.status === 401) {
+                localStorage.removeItem("makletna_session");
+                return;
+              }
+              if (!response.ok) return;
+              const user = await response.json();
+              if (user.role === "customer" || user.role === "provider") {
+                location.replace(user.role === "customer" ? "/home" : "/kitchen");
+              }
+            }).catch(() => {});
+          }
+        } catch {}
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

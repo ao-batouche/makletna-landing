@@ -312,10 +312,10 @@ function Topbar() {
           ))}
         </div>
         <div className="topbar-auth-actions">
-          <a href="/app/login" className="btn-pill btn-pill--ghost">
+          <a href="/login" className="btn-pill btn-pill--ghost">
             {t.nav.login}
           </a>
-          <a href="/app/register" className="btn-pill btn-pill--primary">
+          <a href="/register" className="btn-pill btn-pill--primary">
             {t.nav.signUp}
           </a>
         </div>
@@ -335,7 +335,7 @@ function Hero() {
         </span>
         <h1 className="hero-headline">{t.hero.headline}</h1>
         <p className="hero-description">{t.hero.description}</p>
-        <a href="/app/register" className="btn-pill btn-pill--primary hero-cta">
+        <a href="/register" className="btn-pill btn-pill--primary hero-cta">
           {t.hero.cta}
         </a>
       </FadeIn>
@@ -738,6 +738,7 @@ function FounderNote() {
 }
 
 function Footer() {
+  const publicBase = window.location.pathname.startsWith("/") ? import.meta.env.BASE_URL : "/";
   const { t, lang } = useLanguage();
   const year = new Date().getFullYear();
   const socialLinks = [
@@ -821,10 +822,10 @@ function Footer() {
       </div>
 
       <div className="site-footer-links">
-        <a href={`${import.meta.env.BASE_URL}terms?lang=${lang}`} className="footer-link">{t.footer.links.terms}</a>
-        <a href={`${import.meta.env.BASE_URL}contact?lang=${lang}`} className="footer-link">{t.footer.links.contact}</a>
-        <a href={`${import.meta.env.BASE_URL}partners?lang=${lang}`} className="footer-link">{t.footer.links.partners}</a>
-        <a href={`${import.meta.env.BASE_URL}invest?lang=${lang}`} className="footer-link">{t.footer.links.invest}</a>
+        <a href={`${publicBase}terms?lang=${lang}`} className="footer-link">{t.footer.links.terms}</a>
+        <a href={`${publicBase}contact?lang=${lang}`} className="footer-link">{t.footer.links.contact}</a>
+        <a href={`${publicBase}partners?lang=${lang}`} className="footer-link">{t.footer.links.partners}</a>
+        <a href={`${publicBase}invest?lang=${lang}`} className="footer-link">{t.footer.links.invest}</a>
         <span style={{ flex: 1 }} />
       </div>
 
