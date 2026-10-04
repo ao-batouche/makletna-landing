@@ -146,23 +146,37 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 .lang-switch {
   display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 32px;
   background: rgba(44,24,16,0.04);
   border: 1px solid rgba(44,24,16,0.08);
-  border-radius: 999px;
-  padding: 3px;
-  gap: 2px;
+  border-radius: 10px;
+  padding: 2px;
+  gap: 0;
 }
 .lang-btn {
-  padding: 5px 11px;
-  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  min-width: 30px;
+  padding: 0 6px;
+  border-radius: 7px;
   border: none;
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   transition: all 0.15s;
   background: transparent;
   color: rgba(44,24,16,0.5);
+}
+.lang-btn:focus-visible,
+.auth-group .btn-pill:focus-visible {
+  outline: 2px solid #AE6A34;
+  outline-offset: 3px;
 }
 .lang-btn.is-active {
   background: #2C1810;
@@ -176,8 +190,8 @@ h1, h2, h3, h4, h5, h6, .font-display {
     flex-wrap: wrap;
   }
   .topbar img { height: 30px !important; }
-  .lang-switch { padding: 2px; }
-  .lang-btn { padding: 4px 8px; font-size: 11px; }
+  .lang-switch { height: 30px; }
+  .lang-btn { height: 24px; min-width: 28px; }
   .topbar .btn-pill {
     padding: 8px 12px;
     font-size: 12.5px;
@@ -987,3 +1001,27 @@ textarea.input-field {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #FDF9F0; }
 ::-webkit-scrollbar-thumb { background: rgba(44, 24, 16, 0.3); border-radius: 3px; }
+
+/* ── Joined auth button group ── */
+.auth-group { gap: 0 !important; }
+.auth-group .btn-pill {
+  box-sizing: border-box;
+  height: 32px;
+  border-radius: 0;
+  padding: 0 12px;
+  font-size: 12px;
+  line-height: 1;
+  box-shadow: none;
+  transform: none;
+}
+.auth-group .btn-pill--ghost { border-start-start-radius: 999px; border-end-start-radius: 999px; border-inline-end-width: 0; }
+.auth-group .btn-pill--primary { border-start-end-radius: 999px; border-end-end-radius: 999px; }
+.auth-group .btn-pill--primary:hover { transform: none; }
+@media (max-width: 480px) {
+  .auth-group .btn-pill { height: 30px; padding: 0 10px; font-size: 12px; }
+}
+
+/* ── Contact block ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+.register-inner--wide { max-width: 1000px; }
+@media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; gap: 28px; } }

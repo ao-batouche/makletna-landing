@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Utensils, MapPin, CheckCircle2 } from "lucide-react";
+import { Utensils, MapPin } from "lucide-react";
 import { FaFacebook, FaXTwitter, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { useLanguage } from "./LanguageContext";
+import ContactBlock from "./ContactBlock";
 import type { Lang } from "./translations";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
@@ -311,7 +312,7 @@ function Topbar() {
             </button>
           ))}
         </div>
-        <div className="topbar-auth-actions">
+        <div className="topbar-auth-actions auth-group">
           <a href="/login" className="btn-pill btn-pill--ghost">
             {t.nav.login}
           </a>
@@ -335,9 +336,6 @@ function Hero() {
         </span>
         <h1 className="hero-headline">{t.hero.headline}</h1>
         <p className="hero-description">{t.hero.description}</p>
-        <a href="/register" className="btn-pill btn-pill--primary hero-cta">
-          {t.hero.cta}
-        </a>
       </FadeIn>
     </section>
   );
@@ -442,281 +440,18 @@ function AllFeatures() {
   );
 }
 
-const WILAYAS = [
-  { code: "01", en: "Adrar", ar: "أدرار" },
-  { code: "02", en: "Chlef", ar: "الشلف" },
-  { code: "03", en: "Laghouat", ar: "الأغواط" },
-  { code: "04", en: "Oum El Bouaghi", ar: "أم البواقي" },
-  { code: "05", en: "Batna", ar: "باتنة" },
-  { code: "06", en: "Bejaia", ar: "بجاية" },
-  { code: "07", en: "Biskra", ar: "بسكرة" },
-  { code: "08", en: "Bechar", ar: "بشار" },
-  { code: "09", en: "Blida", ar: "البليدة" },
-  { code: "10", en: "Bouira", ar: "البويرة" },
-  { code: "11", en: "Tamanrasset", ar: "تمنراست" },
-  { code: "12", en: "Tebessa", ar: "تبسة" },
-  { code: "13", en: "Tlemcen", ar: "تلمسان" },
-  { code: "14", en: "Tiaret", ar: "تيارت" },
-  { code: "15", en: "Tizi Ouzou", ar: "تيزي وزو" },
-  { code: "16", en: "Alger", ar: "الجزائر" },
-  { code: "17", en: "Djelfa", ar: "الجلفة" },
-  { code: "18", en: "Jijel", ar: "جيجل" },
-  { code: "19", en: "Setif", ar: "سطيف" },
-  { code: "20", en: "Saida", ar: "سعيدة" },
-  { code: "21", en: "Skikda", ar: "سكيكدة" },
-  { code: "22", en: "Sidi Bel Abbes", ar: "سيدي بلعباس" },
-  { code: "23", en: "Annaba", ar: "عنابة" },
-  { code: "24", en: "Guelma", ar: "قالمة" },
-  { code: "25", en: "Constantine", ar: "قسنطينة" },
-  { code: "26", en: "Medea", ar: "المدية" },
-  { code: "27", en: "Mostaganem", ar: "مستغانم" },
-  { code: "28", en: "M'sila", ar: "المسيلة" },
-  { code: "29", en: "Mascara", ar: "معسكر" },
-  { code: "30", en: "Ouargla", ar: "ورقلة" },
-  { code: "31", en: "Oran", ar: "وهران" },
-  { code: "32", en: "El Bayadh", ar: "البيض" },
-  { code: "33", en: "Illizi", ar: "إليزي" },
-  { code: "34", en: "Bordj Bou Arreridj", ar: "برج بوعريريج" },
-  { code: "35", en: "Boumerdes", ar: "بومرداس" },
-  { code: "36", en: "El Tarf", ar: "الطارف" },
-  { code: "37", en: "Tindouf", ar: "تندوف" },
-  { code: "38", en: "Tissemsilt", ar: "تيسمسيلت" },
-  { code: "39", en: "El Oued", ar: "الوادي" },
-  { code: "40", en: "Khenchela", ar: "خنشلة" },
-  { code: "41", en: "Souk Ahras", ar: "سوق أهراس" },
-  { code: "42", en: "Tipaza", ar: "تيبازة" },
-  { code: "43", en: "Mila", ar: "ميلة" },
-  { code: "44", en: "Ain Defla", ar: "عين الدفلى" },
-  { code: "45", en: "Naama", ar: "النعامة" },
-  { code: "46", en: "Ain Temouchent", ar: "عين تموشنت" },
-  { code: "47", en: "Ghardaia", ar: "غرداية" },
-  { code: "48", en: "Relizane", ar: "غليزان" },
-  { code: "49", en: "Timimoun", ar: "تيميمون" },
-  { code: "50", en: "Bordj Badji Mokhtar", ar: "برج باجي مختار" },
-  { code: "51", en: "Ouled Djellal", ar: "أولاد جلال" },
-  { code: "52", en: "Beni Abbes", ar: "بني عباس" },
-  { code: "53", en: "In Salah", ar: "عين صالح" },
-  { code: "54", en: "In Guezzam", ar: "عين قزام" },
-  { code: "55", en: "Touggourt", ar: "تقرت" },
-  { code: "56", en: "Djanet", ar: "جانت" },
-  { code: "57", en: "El M'Ghair", ar: "المغير" },
-  { code: "58", en: "El Meniaa", ar: "المنيعة" },
-  { code: "59", en: "Aflou", ar: "أفلو" },
-  { code: "60", en: "Barika", ar: "بريكة" },
-  { code: "61", en: "Ksar Chellala", ar: "قصر الشلالة" },
-  { code: "62", en: "Messaad", ar: "مسعد" },
-  { code: "63", en: "Ain Oussera", ar: "عين وسارة" },
-  { code: "64", en: "Boussaada", ar: "بوسعادة" },
-  { code: "65", en: "El Abiodh Sidi Cheikh", ar: "الأبيض سيدي الشيخ" },
-  { code: "66", en: "El Kantara", ar: "القنطرة" },
-  { code: "67", en: "Bir El Ater", ar: "بئر العاتر" },
-  { code: "68", en: "Ksar El Boukhari", ar: "قصر البخاري" },
-  { code: "69", en: "El Aricha", ar: "العريشة" },
-];
-
-function RegisterSection() {
-  const { t, lang } = useLanguage();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    role: "customer" as "customer" | "provider",
-    phone: "",
-    wilaya: "",
-  });
-  const [submitting, setSubmitting] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  async function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setSubmitting(true);
-    setError("");
-    try {
-      const wilayaObj = WILAYAS.find((w) => w.code === form.wilaya);
-      const wilayaLabel = wilayaObj ? `${wilayaObj.code} — ${wilayaObj.en}` : form.wilaya;
-
-      const payload = new FormData();
-      payload.append("name", form.name);
-      payload.append("email", form.email);
-      payload.append("role", form.role);
-      payload.append("phone", form.phone);
-      payload.append("wilaya", wilayaLabel);
-      payload.append("_subject", `New Makletna Registration — ${form.name}`);
-      payload.append("_captcha", "false");
-      payload.append("_template", "table");
-
-      const res = await fetch("https://formsubmit.co/contact@makletna.com", {
-        method: "POST",
-        body: payload,
-      });
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      setSuccess(true);
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : String(err);
-      setError(msg || t.form.error);
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
+function ContactSection() {
+  const { t } = useLanguage();
   return (
-    <section id="register" className="register">
-      <div className="register-inner">
+    <section id="contact" className="register contact-section">
+      <div className="register-inner register-inner--wide">
         <FadeIn style={{ textAlign: "center", marginBottom: 32 }}>
-          <span className="hero-eyebrow">{t.form.sectionLabel}</span>
-          <h2 className="register-title">{t.form.title}</h2>
-          <p className="register-subtitle">{t.form.subtitle}</p>
+          <span className="hero-eyebrow">{t.contact.eyebrow}</span>
+          <h2 className="register-title">{t.contact.title}</h2>
+          <p className="register-subtitle">{t.contact.subtitle}</p>
         </FadeIn>
-
         <FadeIn delay={0.1}>
-          <div className="register-card">
-            {success ? (
-              <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <div
-                  style={{
-                    width: 64,
-                    height: 64,
-                    borderRadius: "50%",
-                    background: "rgba(46,125,50,0.08)",
-                    border: "1.5px solid rgba(46,125,50,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 20px",
-                    color: "#2E7D32",
-                  }}
-                >
-                  <CheckCircle2 size={30} />
-                </div>
-                <h3
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 800,
-                    color: "#2C1810",
-                    marginBottom: 10,
-                  }}
-                >
-                  {t.form.success}
-                </h3>
-                <p
-                  style={{ fontSize: 14.5, color: "#7A5C50", lineHeight: 1.65 }}
-                >
-                  {t.form.successMessage}
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                style={{ display: "flex", flexDirection: "column", gap: 16 }}
-              >
-                <div>
-                  <label className="field-label">{t.form.name}</label>
-                  <input
-                    className="input-field"
-                    type="text"
-                    placeholder={t.form.namePlaceholder}
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    required
-                  />
-                </div>
-                <div>
-                  <label className="field-label">{t.form.email}</label>
-                  <input
-                    className="input-field"
-                    type="email"
-                    dir="ltr"
-                    placeholder={t.form.emailPlaceholder}
-                    value={form.email}
-                    onChange={(e) =>
-                      setForm({ ...form, email: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div>
-                  <fieldset className="role-fieldset">
-                    <legend className="field-label">{t.form.role}</legend>
-                    <div className="role-options">
-                    {[
-                      { value: "customer", label: t.form.roleCustomer },
-                      { value: "provider", label: t.form.roleProvider },
-                    ].map(({ value, label }) => (
-                      <label
-                        key={value}
-                        className={`role-btn ${form.role === value ? "is-active" : ""}`}
-                      >
-                        <input
-                          type="radio"
-                          name="role"
-                          value={value}
-                          checked={form.role === value}
-                          onChange={() => setForm({ ...form, role: value as "customer" | "provider" })}
-                        />
-                        <span>{label}</span>
-                      </label>
-                    ))}
-                    </div>
-                  </fieldset>
-                </div>
-                <div>
-                  <label className="field-label">{t.form.wilaya}</label>
-                  <select
-                    className="input-field"
-                    dir="ltr"
-                    value={form.wilaya}
-                    onChange={(e) =>
-                      setForm({ ...form, wilaya: e.target.value })
-                    }
-                    style={{ cursor: "pointer" }}
-                  >
-                    <option value="">{t.form.wilayaPlaceholder}</option>
-                    {WILAYAS.map((w) => (
-                      <option key={w.code} value={w.code}>
-                        {w.code} — {lang === "ar" ? w.ar : w.en}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="field-label">{t.form.phone}</label>
-                  <input
-                    className="input-field"
-                    type="tel"
-                    dir="ltr"
-                    placeholder={t.form.phonePlaceholder}
-                    value={form.phone}
-                    onChange={(e) =>
-                      setForm({ ...form, phone: e.target.value })
-                    }
-                  />
-                </div>
-                {error && (
-                  <div
-                    style={{
-                      background: "rgba(211,47,47,0.06)",
-                      border: "1px solid rgba(211,47,47,0.2)",
-                      borderRadius: 10,
-                      padding: "10px 14px",
-                      fontSize: 13,
-                      color: "#D32F2F",
-                    }}
-                  >
-                    {error}
-                  </div>
-                )}
-                <button
-                  type="submit"
-                  disabled={submitting}
-                  className="btn-pill btn-pill--primary"
-                  style={{ marginTop: 6, width: "100%" }}
-                >
-                  {submitting ? t.form.submitting : t.form.submit}
-                </button>
-              </form>
-            )}
-          </div>
+          <ContactBlock />
         </FadeIn>
       </div>
     </section>
@@ -849,7 +584,7 @@ export default function LandingPage() {
         <CategoriesSection />
         <AllFeatures />
         <FounderNote />
-        <RegisterSection />
+        <ContactSection />
       </main>
       <Footer />
     </div>
