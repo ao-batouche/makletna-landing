@@ -85,8 +85,8 @@ export default function ContactBlock() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : t.contact.errorGeneric);
+    } catch {
+      setError(t.contact.errorGeneric);
     } finally {
       setSubmitting(false);
     }

@@ -58,8 +58,8 @@ export default function InvestPage() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : t.invest.errorGeneric);
+    } catch {
+      setError(t.invest.errorGeneric);
     } finally {
       setSubmitting(false);
     }

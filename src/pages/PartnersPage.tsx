@@ -50,8 +50,8 @@ export default function PartnersPage() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : t.partners.errorGeneric);
+    } catch {
+      setError(t.partners.errorGeneric);
     } finally {
       setSubmitting(false);
     }
