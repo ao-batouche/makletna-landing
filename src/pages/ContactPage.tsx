@@ -1,12 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "../LanguageContext";
 import { Link } from "wouter";
 import { CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 
 const BRAND_MARK_URL = `${import.meta.env.BASE_URL}makletna-spoon.png`;
 
+type ContactInfo = {
+  email: string;
+  phone1: string;
+  phone1Label: string;
+  phone2: string;
+  phone2Label: string;
+  address: string;
+};
+
 export default function ContactPage() {
   const { t, lang } = useLanguage();
+  const [contact, setContact] = useState<ContactInfo | null>(null);
+  const [contactError, setContactError] = useState(false);
+  useEffect(() => {
+    const controller = new AbortController();
+    async function loadContact() {
+      try {
+        const res = await fetch("https://makletna.replit.app/api/contact", { signal: controller.signal, cache: "no-store" });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        setContact(data);
+        setContactError(false);
+      } catch {
+        if (!controller.signal.aborted) {
+          setContact(null);
+          setContactError(true);
+        }
+      }
+    }
+    void loadContact();
+    const refresh = () => { if (document.visibilityState === "visible") void loadContact(); };
+    document.addEventListener("visibilitychange", refresh);
+    const interval = window.setInterval(refresh, 60_000);
+    return () => {
+      controller.abort();
+      document.removeEventListener("visibilitychange", refresh);
+      window.clearInterval(interval);
+    };
+  }, []);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -86,11 +123,12 @@ export default function ContactPage() {
           <div>
             <div style={{ display: "flex", flexDirection: "column", gap: 24, marginBottom: 40 }}>
               {[
-                { icon: <Mail size={18} />, label: t.contact.infoEmail, value: "contact@makletna.com", dir: "ltr" as const },
-                { icon: <Phone size={18} />, label: t.contact.infoPhone, value: "+213 23 45 67 89", dir: "ltr" as const },
-                { icon: <MapPin size={18} />, label: t.contact.infoAddress, value: t.contact.infoAddressValue },
-              ].map(({ icon, label, value, dir }) => (
-                <div key={label} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+                { icon: <Mail size={18} />, label: t.contact.infoEmail, value: contact?.email?.trim(), dir: "ltr" as const },
+                { icon: <Phone size={18} />, label: contact?.phone1Label?.trim() || t.contact.infoPhone, value: contact?.phone1?.trim(), dir: "ltr" as const },
+                { icon: <Phone size={18} />, label: contact?.phone2Label?.trim() || t.contact.infoPhone, value: contact?.phone2?.trim(), dir: "ltr" as const },
+                { icon: <MapPin size={18} />, label: t.contact.infoAddress, value: contact?.address?.trim() },
+              ].filter(({ value }) => Boolean(value)).map(({ icon, label, value, dir }, index) => (
+                <div key={index} style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
                   <div style={{ width: 40, height: 40, borderRadius: 12, background: "rgba(174,106,52,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "#AE6A34", flexShrink: 0 }}>
                     {icon}
                   </div>
@@ -100,6 +138,7 @@ export default function ContactPage() {
                   </div>
                 </div>
               ))}
+              {contactError && <p role="status">{t.contact.errorGeneric}</p>}
             </div>
           </div>
 
