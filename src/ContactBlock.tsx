@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { submitLead } from "./submission";
 import { useLanguage } from "./LanguageContext";
 import { CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 
@@ -64,21 +65,18 @@ export default function ContactBlock() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (submitting) return;
     const validationError = validate();
     if (validationError) { setError(validationError); return; }
     setSubmitting(true);
     setError("");
     try {
-      const res = await fetch("https://makletna.replit.app/api/form-submissions/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+      const res = await submitLead("/form-submissions/contact", {
           name: form.name,
           email: form.email,
           phone: form.phone || undefined,
           subject: form.subject,
           message: form.message,
-        }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -129,23 +127,23 @@ export default function ContactBlock() {
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
             <div>
               <label className="field-label">{t.contact.name}</label>
-              <input className="input-field" type="text" placeholder={t.contact.namePlaceholder} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+              <input maxLength={120} className="input-field" type="text" placeholder={t.contact.namePlaceholder} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
             </div>
             <div>
               <label className="field-label">{t.contact.email}</label>
-              <input className="input-field" type="email" dir="ltr" placeholder={t.contact.emailPlaceholder} value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+              <input maxLength={254} className="input-field" type="email" dir="ltr" placeholder={t.contact.emailPlaceholder} value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
             </div>
             <div>
               <label className="field-label">{t.contact.phone}</label>
-              <input className="input-field" type="tel" dir="ltr" placeholder={t.contact.phonePlaceholder} value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
+              <input maxLength={30} className="input-field" type="tel" dir="ltr" placeholder={t.contact.phonePlaceholder} value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
             </div>
             <div>
               <label className="field-label">{t.contact.subject}</label>
-              <input className="input-field" type="text" placeholder={t.contact.subjectPlaceholder} value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} required />
+              <input maxLength={200} className="input-field" type="text" placeholder={t.contact.subjectPlaceholder} value={form.subject} onChange={e => setForm({ ...form, subject: e.target.value })} required />
             </div>
             <div>
               <label className="field-label">{t.contact.message}</label>
-              <textarea className="input-field" rows={5} placeholder={t.contact.messagePlaceholder} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required style={{ resize: "vertical", minHeight: 120 }} />
+              <textarea maxLength={2000} className="input-field" rows={5} placeholder={t.contact.messagePlaceholder} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required style={{ resize: "vertical", minHeight: 120 }} />
             </div>
             {error && (
               <div style={{ background: "rgba(211,47,47,0.06)", border: "1px solid rgba(211,47,47,0.2)", borderRadius: 10, padding: "10px 14px", fontSize: 13, color: "#D32F2F" }}>
