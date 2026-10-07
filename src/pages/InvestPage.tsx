@@ -1,4 +1,3 @@
-import { submitLead } from "../submission";
 import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 import { Link } from "wouter";
@@ -38,18 +37,21 @@ export default function InvestPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (submitting) return;
     const validationError = validate();
     if (validationError) { setError(validationError); return; }
     setSubmitting(true);
     setError("");
     try {
-      const res = await submitLead("/form-submissions/investor", {
+      const res = await fetch("https://makletna.replit.app/api/form-submissions/investor", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           name: form.name,
           email: form.email,
           phone: form.phone || undefined,
           investmentRange: form.investmentRange || undefined,
           message: form.message,
+        }),
       });
       if (!res.ok) {
         const body = await res.json().catch(() => ({}));
@@ -136,15 +138,15 @@ export default function InvestPage() {
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
               <div>
                 <label className="field-label">{t.invest.name}</label>
-                <input maxLength={120} className="input-field" type="text" placeholder={t.invest.namePlaceholder} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
+                <input className="input-field" type="text" placeholder={t.invest.namePlaceholder} value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} required />
               </div>
               <div>
                 <label className="field-label">{t.invest.email}</label>
-                <input maxLength={254} className="input-field" type="email" dir="ltr" placeholder={t.invest.emailPlaceholder} value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
+                <input className="input-field" type="email" dir="ltr" placeholder={t.invest.emailPlaceholder} value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} required />
               </div>
               <div>
                 <label className="field-label">{t.invest.phone}</label>
-                <input maxLength={30} className="input-field" type="tel" dir="ltr" placeholder={t.invest.phonePlaceholder} value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
+                <input className="input-field" type="tel" dir="ltr" placeholder={t.invest.phonePlaceholder} value={form.phone} onChange={e => setForm({ ...form, phone: e.target.value })} />
               </div>
               <div>
                 <label className="field-label">{t.invest.investmentRange}</label>
@@ -157,7 +159,7 @@ export default function InvestPage() {
               </div>
               <div>
                 <label className="field-label">{t.invest.message}</label>
-                <textarea maxLength={2000} className="input-field" rows={5} placeholder={t.invest.messagePlaceholder} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required style={{ resize: "vertical", minHeight: 120 }} />
+                <textarea className="input-field" rows={5} placeholder={t.invest.messagePlaceholder} value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} required style={{ resize: "vertical", minHeight: 120 }} />
               </div>
               {error && (
                 <div style={{ background: "rgba(211,47,47,0.06)", border: "1px solid rgba(211,47,47,0.2)", borderRadius: 10, padding: "10px 14px", fontSize: 13, color: "#D32F2F" }}>
