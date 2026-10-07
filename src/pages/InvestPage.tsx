@@ -1,4 +1,4 @@
-import { submitLead } from "../submission";
+import { submitLead, leadError } from "../submission";
 import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 import { Link } from "wouter";
@@ -56,8 +56,8 @@ export default function InvestPage() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch {
-      setError(t.invest.errorGeneric);
+    } catch (error) {
+      setError(leadError(error, lang, t.invest.errorGeneric));
     } finally {
       setSubmitting(false);
     }

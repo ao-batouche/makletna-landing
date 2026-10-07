@@ -1,4 +1,4 @@
-import { submitLead } from "../submission";
+import { submitLead, leadError } from "../submission";
 import { useState } from "react";
 import { useLanguage } from "../LanguageContext";
 import { Link } from "wouter";
@@ -48,8 +48,8 @@ export default function PartnersPage() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch {
-      setError(t.partners.errorGeneric);
+    } catch (error) {
+      setError(leadError(error, lang, t.partners.errorGeneric));
     } finally {
       setSubmitting(false);
     }

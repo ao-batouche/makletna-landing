@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { submitLead } from "./submission";
+import { submitLead, leadError } from "./submission";
 import { useLanguage } from "./LanguageContext";
 import { CheckCircle2, Mail, Phone, MapPin } from "lucide-react";
 
@@ -14,7 +14,7 @@ type ContactInfo = {
 
 export default function ContactBlock() {
 
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [contact, setContact] = useState<ContactInfo | null>(null);
   const [contactError, setContactError] = useState(false);
   useEffect(() => {
@@ -83,8 +83,8 @@ export default function ContactBlock() {
         throw new Error((body as { error?: string }).error ?? `HTTP ${res.status}`);
       }
       setSuccess(true);
-    } catch {
-      setError(t.contact.errorGeneric);
+    } catch (error) {
+      setError(leadError(error, lang, t.contact.errorGeneric));
     } finally {
       setSubmitting(false);
     }
