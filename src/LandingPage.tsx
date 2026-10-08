@@ -330,12 +330,14 @@ function Hero() {
   const { t } = useLanguage();
   const [hoveredService, setHoveredService] = useState<HeroService | null>(null);
   return (
-    <section className="hero">
+    <section className={`hero${hoveredService ? " hero--immersive" : ""}`}>
       <div className="hero-background" aria-hidden="true">
         {HERO_SERVICES.map(({ file }) => (
           <div key={file} data-service={file}
             className={`hero-background-scene${hoveredService === file ? " is-active" : ""}`}>
-            <img src={asset(`hero-services/${file}.webp`)} alt="" decoding="async" />
+            <img src={asset(`hero-services/${file}-hq.webp`)}
+              srcSet={`${asset(`hero-services/${file}-background.webp`)} 1600w, ${asset(`hero-services/${file}-hq.webp`)} 3840w`}
+              sizes="100vw" alt="" decoding="async" />
           </div>
         ))}
       </div>
