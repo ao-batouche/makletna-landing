@@ -1,5 +1,5 @@
 import { createRoot } from "react-dom/client";
-import { installBrowserValidation } from "./form-security";
+import { installBrowserValidation } from "@workspace/api-client-react/form-security";
 import App from "./App";
 import "./index.css";
 installBrowserValidation();
