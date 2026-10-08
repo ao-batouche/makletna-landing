@@ -4,6 +4,7 @@ import { Utensils, MapPin } from "lucide-react";
 import { FaFacebook, FaXTwitter, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { useLanguage } from "./LanguageContext";
 import ContactBlock from "./ContactBlock";
+import FoodStickerHero from "./FoodStickerHero";
 import type { Lang } from "./translations";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
@@ -335,6 +336,7 @@ function Hero() {
           {t.hero.badge}
         </span>
         <h1 className="hero-headline">{t.hero.headline}</h1>
+        <FoodStickerHero />
         <p className="hero-description">{t.hero.description}</p>
       </FadeIn>
     </section>
