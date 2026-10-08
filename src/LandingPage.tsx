@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Utensils, MapPin } from "lucide-react";
 import { FaFacebook, FaXTwitter, FaTiktok, FaInstagram } from "react-icons/fa6";
 import { useLanguage } from "./LanguageContext";
 import ContactBlock from "./ContactBlock";
-import FoodStickerHero from "./FoodStickerHero";
+import FoodStickerHero, { HERO_SERVICES, type HeroService } from "./FoodStickerHero";
 import type { Lang } from "./translations";
 
 const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
@@ -328,15 +328,24 @@ function Topbar() {
 
 function Hero() {
   const { t } = useLanguage();
+  const [hoveredService, setHoveredService] = useState<HeroService | null>(null);
   return (
     <section className="hero">
-      <FadeIn style={{ textAlign: "center", maxWidth: 1200, width: "100%" }}>
+      <div className="hero-background" aria-hidden="true">
+        {HERO_SERVICES.map(({ file }) => (
+          <div key={file} data-service={file}
+            className={`hero-background-scene${hoveredService === file ? " is-active" : ""}`}>
+            <img src={asset(`hero-services/${file}.webp`)} alt="" decoding="async" />
+          </div>
+        ))}
+      </div>
+      <FadeIn style={{ textAlign: "center", maxWidth: 1200, width: "100%", position: "relative", zIndex: 1 }}>
         <span className="hero-eyebrow">
           <span className="hero-eyebrow-dot" />
           {t.hero.badge}
         </span>
         <h1 className="hero-headline">{t.hero.headline}</h1>
-        <FoodStickerHero />
+        <FoodStickerHero onServiceHover={setHoveredService} />
         <p className="hero-description">{t.hero.description}</p>
       </FadeIn>
     </section>

@@ -248,11 +248,30 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* ── Hero ── */
 .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 110px 24px 60px;
   background: #FDF9F0;
+}
+.hero-background { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-background-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 1s ease-in-out, transform 1s ease-out;
+}
+.hero-background-scene.is-active { opacity: 1; transform: scale(1); }
+.hero-background-scene img { width: 100%; height: 100%; object-fit: cover; filter: blur(2px); }
+.hero-background-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(253,249,240,.86), rgba(253,249,240,.64) 47%, rgba(253,249,240,.8) 76%, #FDF9F0);
 }
 .hero-eyebrow {
   display: inline-flex;
@@ -1051,6 +1070,7 @@ textarea.input-field {
 @media (max-width: 360px) { .arcade-label { font-size: 12.5px; left: 4px; right: 4px; } }
 @media (prefers-reduced-motion: reduce) {
   .arcade-item { animation: none !important; }
+  .hero-background-scene { transition: none; transform: none; }
   .arcade-photo img { transition: none; }
   .arcade-item:hover .arcade-photo img { transform: none; }
 }
